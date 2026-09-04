@@ -1,0 +1,2449 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap');
+
+  #pablo-portfolio-master {
+    color-scheme: light dark;
+    width: 100%;
+    color: light-dark(#211f1a, #f2ecd9);
+    font-family: "Manrope", system-ui, sans-serif;
+  }
+
+  #pablo-portfolio-master * { box-sizing: border-box; }
+  #pablo-portfolio-master button,
+  #pablo-portfolio-master a { font: inherit; }
+  #pablo-portfolio-master h1,
+  #pablo-portfolio-master h2,
+  #pablo-portfolio-master h3,
+  #pablo-portfolio-master p { margin-top: 0; }
+
+  #pablo-portfolio-master .ppm-site {
+    overflow: hidden;
+    background-color: light-dark(#f4efdf, #171611);
+    background-image:
+      linear-gradient(light-dark(rgba(46, 42, 32, .065), rgba(255, 246, 218, .055)) 1px, transparent 1px),
+      linear-gradient(90deg, light-dark(rgba(46, 42, 32, .065), rgba(255, 246, 218, .055)) 1px, transparent 1px);
+    background-size: 26px 26px;
+    border: 1px solid light-dark(#c8bfaa, #3a372e);
+  }
+
+  #pablo-portfolio-master .ppm-mono,
+  #pablo-portfolio-master .ppm-eyebrow,
+  #pablo-portfolio-master .ppm-tag,
+  #pablo-portfolio-master .ppm-brand,
+  #pablo-portfolio-master .ppm-nav-links,
+  #pablo-portfolio-master .ppm-button,
+  #pablo-portfolio-master .ppm-card-num,
+  #pablo-portfolio-master .ppm-method-num,
+  #pablo-portfolio-master .ppm-metric-value,
+  #pablo-portfolio-master .ppm-detail-label,
+  #pablo-portfolio-master .ppm-small-label { font-family: "IBM Plex Mono", monospace; }
+
+  #pablo-portfolio-master .ppm-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 17px 24px;
+    background: light-dark(rgba(244, 239, 223, .94), rgba(23, 22, 17, .94));
+    border-bottom: 1px dashed light-dark(#847b67, #67604f);
+  }
+
+  #pablo-portfolio-master .ppm-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: 500;
+    letter-spacing: -.02em;
+  }
+
+  #pablo-portfolio-master .ppm-mark {
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    color: #211a08;
+    background: light-dark(#f5c84d, #e2ad2f);
+    border: 1px solid light-dark(#2b281f, #f1e8ce);
+    box-shadow: 3px 3px 0 light-dark(#2b281f, #e7ddc2);
+  }
+
+  #pablo-portfolio-master .ppm-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  #pablo-portfolio-master .ppm-contact-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  #pablo-portfolio-master .ppm-contact-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 31px;
+    padding: 0 2px;
+    color: light-dark(#211f1a, #f1eddf);
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    text-decoration: none;
+    transition: color .18s ease;
+  }
+
+  #pablo-portfolio-master .ppm-contact-link:hover,
+  #pablo-portfolio-master .ppm-contact-link:focus-visible {
+    color: light-dark(#9b6e00, #f5c84d);
+    outline: none;
+  }
+
+  #pablo-portfolio-master .ppm-contact-link + .ppm-contact-link::before {
+    content: '·';
+    margin: 0 10px;
+    color: light-dark(#847b67, #67604f);
+  }
+
+  #pablo-portfolio-master .ppm-nav-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #pablo-portfolio-master .ppm-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 16px;
+    color: #211a08;
+    background: light-dark(#f5c84d, #e2ad2f);
+    border: 1px solid light-dark(#2b281f, #f1e8ce);
+    box-shadow: 4px 4px 0 light-dark(#2b281f, #e7ddc2);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-button-secondary {
+    color: light-dark(#211f1a, #f1eddf);
+    background: light-dark(#fffaf0, #232118);
+  }
+
+  #pablo-portfolio-master .ppm-button-ghost {
+    min-height: 40px;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  #pablo-portfolio-master .ppm-home[hidden],
+  #pablo-portfolio-master .ppm-detail[hidden] { display: none; }
+
+  #pablo-portfolio-master .ppm-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr);
+    min-height: 500px;
+    border-bottom: 1px dashed light-dark(#847b67, #67604f);
+  }
+
+  #pablo-portfolio-master .ppm-hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 66px 48px 62px;
+    border-right: 1px dashed light-dark(#847b67, #67604f);
+  }
+
+  #pablo-portfolio-master .ppm-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-bottom: 24px;
+    padding: 7px 9px;
+    background: light-dark(#e9e1cc, #2a281f);
+    border: 1px dashed light-dark(#847b67, #67604f);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-kicker-dot {
+    width: 8px;
+    height: 8px;
+    background: light-dark(#e45831, #f17954);
+    border-radius: 50%;
+  }
+
+  #pablo-portfolio-master h1 {
+    max-width: 680px;
+    margin-bottom: 22px;
+    font-size: clamp(39px, 6.5vw, 74px);
+    font-weight: 500;
+    line-height: .99;
+    letter-spacing: -.055em;
+  }
+
+  #pablo-portfolio-master .ppm-highlight {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+  }
+
+  #pablo-portfolio-master .ppm-highlight::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -3px;
+    bottom: 5px;
+    left: -3px;
+    height: .32em;
+    background: light-dark(#f5c84d, #b88115);
+    transform: rotate(-1deg);
+  }
+
+  #pablo-portfolio-master .ppm-lead {
+    max-width: 630px;
+    margin-bottom: 30px;
+    color: light-dark(#575042, #c7bea8);
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  #pablo-portfolio-master .ppm-hero-method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 44px 34px;
+    background: light-dark(rgba(255, 251, 239, .68), rgba(29, 28, 22, .75));
+  }
+
+  #pablo-portfolio-master .ppm-method-board {
+    width: min(100%, 430px);
+    background: light-dark(#fffaf0, #232118);
+    border: 1px solid light-dark(#2b281f, #e7ddc2);
+    box-shadow: 10px 10px 0 light-dark(#f5c84d, #9a6d11);
+  }
+
+  #pablo-portfolio-master .ppm-method-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 15px;
+    border-bottom: 1px solid light-dark(#2b281f, #e7ddc2);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+  }
+
+  #pablo-portfolio-master .ppm-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: light-dark(#3b7550, #75be91);
+  }
+
+  #pablo-portfolio-master .ppm-status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: currentColor;
+    border-radius: 50%;
+  }
+
+  #pablo-portfolio-master .ppm-method-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #pablo-portfolio-master .ppm-method-cell {
+    min-height: 113px;
+    padding: 16px;
+    border-right: 1px dashed light-dark(#b9b09c, #514c3f);
+    border-bottom: 1px dashed light-dark(#b9b09c, #514c3f);
+  }
+
+  #pablo-portfolio-master .ppm-method-cell:nth-child(2n) { border-right: 0; }
+  #pablo-portfolio-master .ppm-method-cell:nth-last-child(-n+2) { border-bottom: 0; }
+
+  #pablo-portfolio-master .ppm-method-num {
+    display: block;
+    margin-bottom: 17px;
+    color: light-dark(#a15d26, #efaa69);
+    font-size: 10px;
+  }
+
+  #pablo-portfolio-master .ppm-method-cell strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-method-cell span:last-child {
+    color: light-dark(#746b59, #aaa18d);
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  #pablo-portfolio-master .ppm-proof {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: light-dark(#f4efdf, #211f1a);
+    background: light-dark(#211f1a, #eee6d0);
+  }
+
+  #pablo-portfolio-master .ppm-proof-item {
+    padding: 23px 28px;
+    border-right: 1px dashed light-dark(#6c6557, #817967);
+  }
+
+  #pablo-portfolio-master .ppm-proof-item:last-child { border-right: 0; }
+
+  #pablo-portfolio-master .ppm-proof-value {
+    margin-bottom: 4px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(25px, 4vw, 35px);
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-proof-label {
+    color: light-dark(#d4cbb7, #5b5446);
+    font-size: 12px;
+  }
+
+  #pablo-portfolio-master .ppm-projects,
+  #pablo-portfolio-master .ppm-other {
+    padding: 68px 34px;
+  }
+
+  #pablo-portfolio-master .ppm-lab {
+    padding: 70px 34px;
+    color: #f4efdf;
+    background: #171611;
+    border-bottom: 1px dashed #67604f;
+  }
+
+  #pablo-portfolio-master .ppm-lab-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #pablo-portfolio-master .ppm-lab-head {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 30px;
+    align-items: end;
+    margin-bottom: 31px;
+  }
+
+  #pablo-portfolio-master .ppm-lab-head h2 {
+    margin: 8px 0 0;
+    font-size: clamp(31px, 5vw, 54px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -.05em;
+  }
+
+  #pablo-portfolio-master .ppm-lab-head p {
+    max-width: 440px;
+    margin: 0;
+    color: #cfc5ad;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  #pablo-portfolio-master .ppm-lab-shell {
+    display: grid;
+    grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
+    min-width: 0;
+    background: #242119;
+    border: 1px solid #eee6d0;
+    box-shadow: 10px 10px 0 #e2ad2f;
+  }
+
+  #pablo-portfolio-master .ppm-lab-chat,
+  #pablo-portfolio-master .ppm-lab-result { min-width: 0; }
+
+  #pablo-portfolio-master .ppm-lab-chat {
+    padding: 24px;
+    border-right: 1px dashed #67604f;
+  }
+
+  #pablo-portfolio-master .ppm-lab-window-head,
+  #pablo-portfolio-master .ppm-lab-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-lab-status-row {
+    padding: 13px 17px;
+    color: #211a08;
+    background: #e2ad2f;
+  }
+
+  #pablo-portfolio-master .ppm-lab-message {
+    margin: 26px 0 20px;
+    padding: 16px;
+    color: #211f1a;
+    background: #fff7df;
+    border: 1px solid #eee6d0;
+    box-shadow: 4px 4px 0 #e2ad2f;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-lab-message span {
+    display: block;
+    margin-bottom: 8px;
+    color: #8b551f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-scenarios {
+    display: grid;
+    gap: 9px;
+  }
+
+  #pablo-portfolio-master .ppm-scenario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    min-height: 48px;
+    padding: 10px 12px;
+    color: #f4efdf;
+    background: transparent;
+    border: 1px solid #67604f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-scenario[aria-pressed="true"] {
+    color: #211a08;
+    background: #e2ad2f;
+    border-color: #e2ad2f;
+  }
+
+  #pablo-portfolio-master .ppm-scenario-code { opacity: .72; }
+
+  #pablo-portfolio-master .ppm-lab-result {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #pablo-portfolio-master .ppm-lab-blueprint {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex: 1;
+  }
+
+  #pablo-portfolio-master .ppm-blueprint-cell {
+    min-width: 0;
+    min-height: 148px;
+    padding: 20px;
+    border-right: 1px dashed #67604f;
+    border-bottom: 1px dashed #67604f;
+  }
+
+  #pablo-portfolio-master .ppm-blueprint-cell:nth-child(2n) { border-right: 0; }
+  #pablo-portfolio-master .ppm-blueprint-cell:nth-last-child(-n+2) { border-bottom: 0; }
+
+  #pablo-portfolio-master .ppm-blueprint-step {
+    display: block;
+    margin-bottom: 14px;
+    color: #e2ad2f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-blueprint-cell strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-blueprint-cell p {
+    margin: 0;
+    color: #cfc5ad;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-lab-proof {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px 20px;
+    border-top: 1px solid #eee6d0;
+  }
+
+  #pablo-portfolio-master .ppm-lab-proof strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-lab-proof span {
+    color: #cfc5ad;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-lab-open {
+    min-height: 42px;
+    padding: 0 14px;
+    color: #211a08;
+    background: #e2ad2f;
+    border: 1px solid #eee6d0;
+    box-shadow: 3px 3px 0 #eee6d0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-chat-shell {
+    min-width: 0;
+    overflow: hidden;
+    background: #242119;
+    border: 1px solid #eee6d0;
+    box-shadow: 10px 10px 0 #e2ad2f;
+  }
+
+  #pablo-portfolio-master .ppm-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  #pablo-portfolio-master .ppm-chat-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 17px;
+    color: #211a08;
+    background: #e2ad2f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-chat-identity {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  #pablo-portfolio-master .ppm-chat-avatar {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    color: #fff7df;
+    background: #211a08;
+    border-radius: 50%;
+  }
+
+  #pablo-portfolio-master .ppm-chat-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(220px, .65fr);
+    min-width: 0;
+  }
+
+  #pablo-portfolio-master .ppm-chat-main,
+  #pablo-portfolio-master .ppm-chat-side { min-width: 0; }
+
+  #pablo-portfolio-master .ppm-chat-main {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px dashed #67604f;
+  }
+
+  #pablo-portfolio-master .ppm-chat-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    min-height: 430px;
+    max-height: 640px;
+    overflow-y: auto;
+    padding: 25px;
+    scroll-behavior: smooth;
+  }
+
+  #pablo-portfolio-master .ppm-chat-message {
+    max-width: 88%;
+    padding: 15px 16px;
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  #pablo-portfolio-master .ppm-chat-message.ppm-bot {
+    align-self: flex-start;
+    color: #211f1a;
+    background: #fff7df;
+    border: 1px solid #eee6d0;
+    box-shadow: 4px 4px 0 #e2ad2f;
+  }
+
+  #pablo-portfolio-master .ppm-chat-message.ppm-user {
+    align-self: flex-end;
+    color: #fff7df;
+    background: #4d483b;
+    border: 1px solid #8d846e;
+  }
+
+  #pablo-portfolio-master .ppm-message-author {
+    display: block;
+    margin-bottom: 8px;
+    color: #945a22;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-user .ppm-message-author { color: #e8d6ae; }
+
+  #pablo-portfolio-master .ppm-answer-section + .ppm-answer-section {
+    margin-top: 13px;
+    padding-top: 12px;
+    border-top: 1px dashed #b9ad8e;
+  }
+
+  #pablo-portfolio-master .ppm-answer-section strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-proof-case {
+    margin-top: 14px;
+    padding: 13px;
+    color: #fff7df;
+    background: #211a08;
+  }
+
+  #pablo-portfolio-master .ppm-proof-case span {
+    display: block;
+    margin-bottom: 5px;
+    color: #e2ad2f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-proof-case strong {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-proof-case p {
+    margin: 0;
+    color: #d8ceb7;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-chat-case-button {
+    min-height: 38px;
+    margin-top: 12px;
+    padding: 0 11px;
+    color: #211a08;
+    background: #e2ad2f;
+    border: 1px solid #fff7df;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-chat-typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  #pablo-portfolio-master .ppm-chat-typing span {
+    width: 7px;
+    height: 7px;
+    background: #945a22;
+    border-radius: 50%;
+    animation: ppm-chat-pulse 1s ease-in-out infinite;
+  }
+
+  #pablo-portfolio-master .ppm-chat-typing span:nth-child(2) { animation-delay: .12s; }
+  #pablo-portfolio-master .ppm-chat-typing span:nth-child(3) { animation-delay: .24s; }
+
+  @keyframes ppm-chat-pulse {
+    0%, 100% { opacity: .35; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-2px); }
+  }
+
+  #pablo-portfolio-master .ppm-chat-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 25px 18px;
+  }
+
+  #pablo-portfolio-master .ppm-chat-suggestion {
+    min-height: 38px;
+    padding: 7px 10px;
+    color: #f4efdf;
+    background: transparent;
+    border: 1px solid #67604f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-chat-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 17px;
+    border-top: 1px solid #eee6d0;
+  }
+
+  #pablo-portfolio-master .ppm-chat-input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 11px 13px;
+    color: #211f1a;
+    background: #fff7df;
+    border: 1px solid #eee6d0;
+    font-size: 16px;
+  }
+
+  #pablo-portfolio-master .ppm-chat-send {
+    min-height: 46px;
+    padding: 0 15px;
+    color: #211a08;
+    background: #e2ad2f;
+    border: 1px solid #eee6d0;
+    box-shadow: 3px 3px 0 #eee6d0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-chat-side {
+    padding: 23px;
+    background: #1c1a15;
+  }
+
+  #pablo-portfolio-master .ppm-chat-side h3 {
+    margin: 8px 0 18px;
+    color: #f4efdf;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -.025em;
+  }
+
+  #pablo-portfolio-master .ppm-knowledge-list {
+    display: grid;
+    gap: 0;
+    border-top: 1px dashed #67604f;
+  }
+
+  #pablo-portfolio-master .ppm-knowledge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 0;
+    color: #cfc5ad;
+    border-bottom: 1px dashed #67604f;
+    font-size: 11px;
+  }
+
+  #pablo-portfolio-master .ppm-knowledge-row span:last-child {
+    color: #e2ad2f;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+  }
+
+  #pablo-portfolio-master .ppm-chat-note {
+    margin: 20px 0 0;
+    color: #9f9785;
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 31px;
+  }
+
+  #pablo-portfolio-master .ppm-eyebrow,
+  #pablo-portfolio-master .ppm-card-num,
+  #pablo-portfolio-master .ppm-detail-label,
+  #pablo-portfolio-master .ppm-small-label {
+    font-size: 11px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-section-head h2,
+  #pablo-portfolio-master .ppm-detail-hero h2,
+  #pablo-portfolio-master .ppm-other h2 {
+    margin: 8px 0 0;
+    font-size: clamp(29px, 4.2vw, 46px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -.045em;
+  }
+
+  #pablo-portfolio-master .ppm-section-note {
+    max-width: 410px;
+    margin: 0;
+    color: light-dark(#69614f, #b6ad98);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-project-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #pablo-portfolio-master .ppm-project-card {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+    min-height: 430px;
+    background: light-dark(#fffaf0, #232118);
+    border: 1px solid light-dark(#2b281f, #e7ddc2);
+    box-shadow: 7px 7px 0 light-dark(#2b281f, #e7ddc2);
+  }
+
+  #pablo-portfolio-master .ppm-project-card.ppm-wide { grid-column: span 3; }
+
+  #pablo-portfolio-master .ppm-card-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 160px;
+    overflow: hidden;
+    padding: 20px;
+    color: #201d17;
+    background: #e8dfc9;
+    border-bottom: 1px solid light-dark(#2b281f, #e7ddc2);
+  }
+
+  #pablo-portfolio-master .ppm-art-orange { background: #e76d42; }
+  #pablo-portfolio-master .ppm-art-blue { background: #5f86b7; }
+  #pablo-portfolio-master .ppm-art-green { background: #6c9d75; }
+  #pablo-portfolio-master .ppm-art-yellow { background: #e8ba3e; }
+  #pablo-portfolio-master .ppm-art-plum { background: #8b6a91; }
+
+  #pablo-portfolio-master .ppm-mini-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  #pablo-portfolio-master .ppm-mini-box {
+    display: grid;
+    place-items: center;
+    min-height: 62px;
+    padding: 8px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-mini-arrow {
+    color: #fff7df;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
+  }
+
+  #pablo-portfolio-master .ppm-mini-docs {
+    position: relative;
+    width: 210px;
+    height: 112px;
+  }
+
+  #pablo-portfolio-master .ppm-mini-doc {
+    position: absolute;
+    top: 0;
+    width: 82px;
+    height: 104px;
+    padding: 10px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+  }
+
+  #pablo-portfolio-master .ppm-mini-doc:nth-child(1) { left: 0; transform: rotate(-7deg); }
+  #pablo-portfolio-master .ppm-mini-doc:nth-child(2) { left: 64px; }
+  #pablo-portfolio-master .ppm-mini-doc:nth-child(3) { right: 0; transform: rotate(7deg); }
+
+  #pablo-portfolio-master .ppm-doc-line {
+    height: 5px;
+    margin-bottom: 7px;
+    background: #b9ad8e;
+  }
+
+  #pablo-portfolio-master .ppm-doc-line-short { width: 60%; }
+
+  #pablo-portfolio-master .ppm-doc-check {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    margin: 15px auto 0;
+    color: #fff7df;
+    background: #2f7755;
+    border-radius: 50%;
+  }
+
+  #pablo-portfolio-master .ppm-mini-db {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  #pablo-portfolio-master .ppm-db-column {
+    padding: 11px 8px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-db-column strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  #pablo-portfolio-master .ppm-mini-dashboard {
+    width: 100%;
+    padding: 15px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 4px 4px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  #pablo-portfolio-master .ppm-dash-row {
+    display: grid;
+    grid-template-columns: 1.1fr .8fr 1.5fr;
+    gap: 8px;
+    align-items: center;
+    font-size: 9px;
+  }
+
+  #pablo-portfolio-master .ppm-progress-track {
+    height: 10px;
+    overflow: hidden;
+    background: #d8cfb7;
+  }
+
+  #pablo-portfolio-master .ppm-progress-fill {
+    width: 68%;
+    height: 100%;
+    background: #2f7755;
+  }
+
+  #pablo-portfolio-master .ppm-mini-indicators {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  #pablo-portfolio-master .ppm-indicator-tile {
+    padding: 12px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  #pablo-portfolio-master .ppm-card-num { color: light-dark(#7d725d, #a9a08c); }
+
+  #pablo-portfolio-master .ppm-project-card h3 {
+    margin: 10px 0 11px;
+    font-size: clamp(21px, 2.7vw, 29px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -.035em;
+  }
+
+  #pablo-portfolio-master .ppm-card-desc {
+    margin-bottom: 18px;
+    color: light-dark(#615947, #b9b09c);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  #pablo-portfolio-master .ppm-card-footer {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px dashed light-dark(#a99f89, #514c3f);
+  }
+
+  #pablo-portfolio-master .ppm-card-stat strong {
+    display: block;
+    margin-bottom: 2px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-card-stat span {
+    color: light-dark(#746b59, #aaa18d);
+    font-size: 10px;
+  }
+
+  #pablo-portfolio-master .ppm-open-project {
+    min-height: 38px;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  #pablo-portfolio-master .ppm-other {
+    color: light-dark(#f4efdf, #211f1a);
+    background: light-dark(#211f1a, #eee6d0);
+  }
+
+  #pablo-portfolio-master .ppm-other-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #pablo-portfolio-master .ppm-other-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  #pablo-portfolio-master .ppm-other-head p {
+    max-width: 390px;
+    margin: 0;
+    color: light-dark(#d4cbb7, #5b5446);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  #pablo-portfolio-master .ppm-other-list {
+    border-top: 1px dashed light-dark(#6c6557, #817967);
+  }
+
+  #pablo-portfolio-master .ppm-other-row {
+    display: grid;
+    grid-template-columns: 44px 1.1fr 1.8fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 17px 0;
+    border-bottom: 1px dashed light-dark(#6c6557, #817967);
+    cursor: pointer;
+    transition: background-color .18s ease, padding-left .18s ease, padding-right .18s ease;
+  }
+
+  #pablo-portfolio-master .ppm-other-row:hover,
+  #pablo-portfolio-master .ppm-other-row:focus-visible {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: light-dark(rgba(245, 200, 77, .13), rgba(193, 139, 26, .15));
+    outline: none;
+  }
+
+  #pablo-portfolio-master .ppm-other-row span {
+    color: light-dark(#d4cbb7, #5b5446);
+    font-size: 12px;
+  }
+
+  #pablo-portfolio-master .ppm-other-row strong { font-weight: 500; }
+
+  #pablo-portfolio-master .ppm-other-tool {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px !important;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 27px 30px;
+    color: #211a08;
+    background: light-dark(#f5c84d, #c18b1a);
+    border-top: 1px solid #211a08;
+  }
+
+  #pablo-portfolio-master .ppm-footer strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-footer span {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+  }
+
+  #pablo-portfolio-master .ppm-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 15px;
+    color: #f5eddb;
+    background: #211a08;
+    border: 1px solid #211a08;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-decoration: none;
+  }
+
+  #pablo-portfolio-master .ppm-footer .ppm-footer-contact-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  #pablo-portfolio-master .ppm-footer .ppm-footer-contact-links a {
+    min-height: 0;
+    padding: 0;
+    color: #211a08;
+    background: transparent;
+    border: 0;
+    transition: color .18s ease;
+  }
+
+  #pablo-portfolio-master .ppm-footer .ppm-footer-contact-links a:hover,
+  #pablo-portfolio-master .ppm-footer .ppm-footer-contact-links a:focus-visible {
+    color: #f5eddb;
+    outline: none;
+  }
+
+  #pablo-portfolio-master .ppm-footer .ppm-footer-contact-links a + a::before {
+    content: '·';
+    margin: 0 14px;
+    color: rgba(33, 26, 8, .55);
+  }
+
+  #pablo-portfolio-master .ppm-detail {
+    min-height: 600px;
+    background: light-dark(rgba(244, 239, 223, .72), rgba(23, 22, 17, .78));
+  }
+
+  #pablo-portfolio-master .ppm-detail-top {
+    padding: 22px 34px 0;
+  }
+
+  #pablo-portfolio-master .ppm-detail-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #pablo-portfolio-master .ppm-detail-hero {
+    display: grid;
+    grid-template-columns: 1fr .92fr;
+    gap: 40px;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+    padding: 44px 34px 54px;
+    border-bottom: 1px dashed light-dark(#847b67, #67604f);
+  }
+
+  #pablo-portfolio-master .ppm-detail-hero-copy { min-width: 0; max-width: 620px; }
+
+  #pablo-portfolio-master .ppm-detail-summary {
+    margin: 20px 0 25px;
+    color: light-dark(#575042, #c7bea8);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  #pablo-portfolio-master .ppm-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  #pablo-portfolio-master .ppm-tag {
+    padding: 6px 8px;
+    background: light-dark(#ebe3cf, #302d24);
+    border: 1px solid light-dark(#c3b9a3, #514c3f);
+    font-size: 9px;
+  }
+
+  #pablo-portfolio-master .ppm-detail-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 28px;
+    border-top: 1px dashed light-dark(#a99f89, #514c3f);
+    border-bottom: 1px dashed light-dark(#a99f89, #514c3f);
+  }
+
+  #pablo-portfolio-master .ppm-detail-metric {
+    padding: 15px 10px 15px 0;
+    border-right: 1px dashed light-dark(#a99f89, #514c3f);
+  }
+
+  #pablo-portfolio-master .ppm-detail-metric:not(:first-child) { padding-left: 12px; }
+  #pablo-portfolio-master .ppm-detail-metric:last-child { border-right: 0; }
+
+  #pablo-portfolio-master .ppm-metric-value {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  #pablo-portfolio-master .ppm-detail-metric span:last-child {
+    color: light-dark(#746b59, #aaa18d);
+    font-size: 10px;
+  }
+
+  #pablo-portfolio-master .ppm-detail-visual {
+    width: 100%;
+    min-width: 0;
+    min-height: 330px;
+    padding: 25px;
+    color: #201d17;
+    border: 1px solid light-dark(#2b281f, #e7ddc2);
+    box-shadow: 9px 9px 0 light-dark(#2b281f, #e7ddc2);
+  }
+
+  #pablo-portfolio-master .ppm-detail-art-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-art-flow-large {
+    display: grid;
+    grid-template-columns: 1fr auto 1.2fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    min-height: 215px;
+  }
+
+  #pablo-portfolio-master .ppm-art-node {
+    display: grid;
+    place-items: center;
+    min-height: 105px;
+    padding: 12px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 4px 4px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-art-arrow {
+    color: #fff7df;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 22px;
+  }
+
+  #pablo-portfolio-master .ppm-guardian-blocks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  #pablo-portfolio-master .ppm-guardian-block {
+    min-height: 91px;
+    padding: 12px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  #pablo-portfolio-master .ppm-guardian-block strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  #pablo-portfolio-master .ppm-guardian-output {
+    margin-top: 13px;
+    padding: 10px;
+    color: #fff7df;
+    background: #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-governance-visual {
+    display: grid;
+    grid-template-columns: 1fr auto 1.15fr auto .9fr;
+    gap: 9px;
+    align-items: center;
+  }
+
+  #pablo-portfolio-master .ppm-source-stack {
+    display: grid;
+    gap: 8px;
+  }
+
+  #pablo-portfolio-master .ppm-source-box,
+  #pablo-portfolio-master .ppm-governance-hub,
+  #pablo-portfolio-master .ppm-erp-box {
+    padding: 11px 8px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 8px;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-governance-hub { padding: 20px 10px; font-size: 9px; }
+  #pablo-portfolio-master .ppm-governance-hub strong,
+  #pablo-portfolio-master .ppm-erp-box strong { display: block; margin-bottom: 6px; font-size: 11px; }
+
+  #pablo-portfolio-master .ppm-dash-comparison {
+    display: grid;
+    gap: 13px;
+    min-width: 0;
+  }
+
+  #pablo-portfolio-master .ppm-table-scene {
+    min-width: 0;
+    overflow: hidden;
+    padding: 11px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+  }
+
+  #pablo-portfolio-master .ppm-panel-label {
+    display: block;
+    margin-bottom: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-chaos-grid {
+    display: grid;
+    grid-template-columns: minmax(76px, 1.5fr) repeat(16, minmax(0, .5fr));
+    gap: 2px;
+    min-width: 0;
+    overflow: hidden;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  #pablo-portfolio-master .ppm-chaos-grid span {
+    min-width: 0;
+    min-height: 42px;
+    overflow: hidden;
+    padding: 5px 2px;
+    background: #d8cfb7;
+    font-size: 7px;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  #pablo-portfolio-master .ppm-chaos-grid .ppm-table-head {
+    min-height: 34px;
+    color: #fff7df;
+    background: #5e5748;
+  }
+
+  #pablo-portfolio-master .ppm-chaos-grid .ppm-degree-cell {
+    text-align: left;
+    background: #fff7df;
+  }
+
+  #pablo-portfolio-master .ppm-clear-grid {
+    display: grid;
+    grid-template-columns: minmax(92px, 1.5fr) minmax(64px, .95fr) minmax(68px, 1fr) minmax(96px, 1.4fr);
+    gap: 4px;
+    align-items: stretch;
+    min-width: 0;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  #pablo-portfolio-master .ppm-clear-grid > span,
+  #pablo-portfolio-master .ppm-clear-grid > div {
+    min-width: 0;
+    padding: 8px 6px;
+    background: #efe5cc;
+    font-size: 8px;
+    line-height: 1.3;
+  }
+
+  #pablo-portfolio-master .ppm-clear-grid .ppm-table-head {
+    color: #fff7df;
+    background: #5e5748;
+    font-size: 7px;
+    text-transform: uppercase;
+  }
+
+  #pablo-portfolio-master .ppm-clear-progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  #pablo-portfolio-master .ppm-sigc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  #pablo-portfolio-master .ppm-sigc-tile {
+    min-height: 85px;
+    padding: 13px;
+    background: #fff7df;
+    border: 1px solid #201d17;
+    box-shadow: 3px 3px 0 #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  #pablo-portfolio-master .ppm-sigc-tile strong { display: block; margin-bottom: 6px; font-size: 11px; }
+
+  #pablo-portfolio-master .ppm-cadence {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 11px;
+    border-top: 1px solid #201d17;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 8px;
+  }
+
+  #pablo-portfolio-master .ppm-story {
+    padding: 60px 34px 70px;
+  }
+
+  #pablo-portfolio-master .ppm-story-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #pablo-portfolio-master .ppm-story-block {
+    padding: 25px;
+    background: light-dark(#fffaf0, #232118);
+    border: 1px solid light-dark(#2b281f, #e7ddc2);
+  }
+
+  #pablo-portfolio-master .ppm-story-block h3 {
+    margin: 10px 0 14px;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: -.03em;
+  }
+
+  #pablo-portfolio-master .ppm-story-block p,
+  #pablo-portfolio-master .ppm-story-block li {
+    color: light-dark(#615947, #b9b09c);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  #pablo-portfolio-master .ppm-story-block p:last-child { margin-bottom: 0; }
+  #pablo-portfolio-master .ppm-story-block ul { margin: 0; padding-left: 18px; }
+  #pablo-portfolio-master .ppm-story-block li + li { margin-top: 7px; }
+
+  #pablo-portfolio-master .ppm-quote {
+    grid-column: 1 / -1;
+    padding: 28px;
+    color: light-dark(#211f1a, #211a08);
+    background: light-dark(#f5c84d, #c18b1a);
+    border: 1px solid light-dark(#2b281f, #211a08);
+    box-shadow: 7px 7px 0 light-dark(#2b281f, #e7ddc2);
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -.025em;
+  }
+
+  #pablo-portfolio-master .ppm-confidentiality {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    color: light-dark(#746b59, #aaa18d);
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    #pablo-portfolio-master .ppm-hero { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-hero-copy {
+      border-right: 0;
+      border-bottom: 1px dashed light-dark(#847b67, #67604f);
+    }
+    #pablo-portfolio-master .ppm-project-card,
+    #pablo-portfolio-master .ppm-project-card.ppm-wide { grid-column: span 3; }
+    #pablo-portfolio-master .ppm-detail-hero { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-detail-visual { min-height: 300px; }
+    #pablo-portfolio-master .ppm-lab-shell { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-lab-chat { border-right: 0; border-bottom: 1px dashed #67604f; }
+    #pablo-portfolio-master .ppm-chat-layout { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-chat-main { border-right: 0; border-bottom: 1px dashed #67604f; }
+  }
+
+  @media (max-width: 680px) {
+    #pablo-portfolio-master .ppm-nav { padding: 15px 17px; }
+    #pablo-portfolio-master .ppm-nav-links .ppm-nav-link { display: none; }
+    #pablo-portfolio-master .ppm-hero-copy { padding: 50px 23px; }
+    #pablo-portfolio-master .ppm-hero-method { padding: 35px 22px 44px; }
+    #pablo-portfolio-master .ppm-proof { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-proof-item {
+      border-right: 0;
+      border-bottom: 1px dashed light-dark(#6c6557, #817967);
+    }
+    #pablo-portfolio-master .ppm-proof-item:last-child { border-bottom: 0; }
+    #pablo-portfolio-master .ppm-projects,
+    #pablo-portfolio-master .ppm-other,
+    #pablo-portfolio-master .ppm-lab { padding: 52px 18px; }
+    #pablo-portfolio-master .ppm-section-head,
+    #pablo-portfolio-master .ppm-other-head { align-items: start; flex-direction: column; }
+    #pablo-portfolio-master .ppm-lab-head { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-project-grid { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-project-card,
+    #pablo-portfolio-master .ppm-project-card.ppm-wide { grid-column: 1; }
+    #pablo-portfolio-master .ppm-other-row { grid-template-columns: 36px 1fr; }
+    #pablo-portfolio-master .ppm-other-row span:not(.ppm-other-index) { grid-column: 2; }
+    #pablo-portfolio-master .ppm-other-tool { grid-column: 2; }
+    #pablo-portfolio-master .ppm-footer { align-items: flex-start; flex-direction: column; }
+    #pablo-portfolio-master .ppm-detail-top { padding: 18px 22px 0; }
+    #pablo-portfolio-master .ppm-detail-hero { padding: 36px 22px 45px; }
+    #pablo-portfolio-master .ppm-story { padding: 48px 18px 58px; }
+    #pablo-portfolio-master .ppm-story-grid { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-quote { grid-column: 1; }
+    #pablo-portfolio-master .ppm-art-flow-large,
+    #pablo-portfolio-master .ppm-governance-visual { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-art-arrow { transform: rotate(90deg); text-align: center; }
+    #pablo-portfolio-master .ppm-clear-grid { grid-template-columns: minmax(84px, 1.4fr) repeat(3, minmax(54px, 1fr)); }
+  }
+
+  @media (max-width: 390px) {
+    #pablo-portfolio-master .ppm-brand > span:last-child { display: none; }
+    #pablo-portfolio-master .ppm-button { padding: 0 11px; }
+    #pablo-portfolio-master .ppm-method-grid { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-method-cell,
+    #pablo-portfolio-master .ppm-method-cell:nth-child(2n),
+    #pablo-portfolio-master .ppm-method-cell:nth-last-child(-n+2) {
+      border-right: 0;
+      border-bottom: 1px dashed light-dark(#b9b09c, #514c3f);
+    }
+    #pablo-portfolio-master .ppm-method-cell:last-child { border-bottom: 0; }
+    #pablo-portfolio-master .ppm-mini-flow { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-mini-arrow { transform: rotate(90deg); text-align: center; }
+    #pablo-portfolio-master .ppm-detail-metrics { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-detail-metric,
+    #pablo-portfolio-master .ppm-detail-metric:not(:first-child) {
+      padding: 12px 0;
+      border-right: 0;
+      border-bottom: 1px dashed light-dark(#a99f89, #514c3f);
+    }
+    #pablo-portfolio-master .ppm-detail-metric:last-child { border-bottom: 0; }
+    #pablo-portfolio-master .ppm-detail-visual { padding: 17px; }
+    #pablo-portfolio-master .ppm-guardian-blocks,
+    #pablo-portfolio-master .ppm-sigc-grid { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-clear-grid { grid-template-columns: minmax(68px, 1.4fr) repeat(3, minmax(38px, 1fr)); }
+    #pablo-portfolio-master .ppm-lab-blueprint { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-blueprint-cell,
+    #pablo-portfolio-master .ppm-blueprint-cell:nth-child(2n),
+    #pablo-portfolio-master .ppm-blueprint-cell:nth-last-child(-n+2) { border-right: 0; border-bottom: 1px dashed #67604f; }
+    #pablo-portfolio-master .ppm-blueprint-cell:last-child { border-bottom: 0; }
+    #pablo-portfolio-master .ppm-lab-proof { align-items: flex-start; flex-direction: column; }
+    #pablo-portfolio-master .ppm-chat-thread { min-height: 390px; padding: 18px; }
+    #pablo-portfolio-master .ppm-chat-message { max-width: 96%; }
+    #pablo-portfolio-master .ppm-chat-suggestions { padding: 0 18px 16px; }
+    #pablo-portfolio-master .ppm-chat-form { grid-template-columns: 1fr; }
+    #pablo-portfolio-master .ppm-chat-send { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #pablo-portfolio-master .ppm-chat-typing span { animation: none; }
+    #pablo-portfolio-master .ppm-chat-thread { scroll-behavior: auto; }
+  }
+</style>
+
+<div id="pablo-portfolio-master">
+  <main class="ppm-site" aria-label="Portfolio profesional de Pablo López Gil">
+    <nav class="ppm-nav" aria-label="Navegación principal">
+      <div class="ppm-brand">
+        <span class="ppm-mark">PL</span>
+        <span>Pablo López Gil</span>
+      </div>
+      <div class="ppm-nav-links">
+        <div class="ppm-contact-links" aria-label="Canales de contacto">
+          <a class="ppm-contact-link" href="https://wa.me/34654033645" target="_blank" rel="noreferrer" aria-label="WhatsApp" title="Abrir WhatsApp">WhatsApp</a>
+          <a class="ppm-contact-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pablolopezgil1990@gmail.com" aria-label="Correo electrónico" title="Enviar correo">Correo</a>
+          <a class="ppm-contact-link" href="https://www.linkedin.com/in/pablolopezeconomista/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="Ver LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="ppm-home">
+      <section class="ppm-hero">
+        <div class="ppm-hero-copy">
+          <div class="ppm-kicker"><span class="ppm-kicker-dot"></span> Valencia · Remoto</div>
+          <h1>Convierto procesos complejos en <span class="ppm-highlight">sistemas que funcionan.</span></h1>
+          <p class="ppm-lead">Planifico e implanto soluciones de IA, automatización y datos que conectan necesidades de negocio, operaciones y tecnología.</p>
+          <div class="ppm-actions">
+            <a class="ppm-button ppm-home-anchor" href="#ppm-projects">Ver proyectos <i data-lucide="arrow-down-right" aria-hidden="true"></i></a>
+            <a class="ppm-button ppm-button-secondary ppm-home-anchor" href="#ppm-method">Cómo trabajo</a>
+          </div>
+        </div>
+
+        <div class="ppm-hero-method" id="ppm-method" aria-label="Forma de trabajar en seis pasos">
+          <div class="ppm-method-board">
+            <div class="ppm-method-head"><span>mi.forma_de_trabajar</span><span class="ppm-status">OPERATIVA</span></div>
+            <div class="ppm-method-grid">
+              <div class="ppm-method-cell"><span class="ppm-method-num">01 / CONTEXTO</span><strong>Entender</strong><span>Necesidad, usuarios y restricciones.</span></div>
+              <div class="ppm-method-cell"><span class="ppm-method-num">02 / RUTA</span><strong>Planificar</strong><span>Prioridades, fases, datos y riesgos.</span></div>
+              <div class="ppm-method-cell"><span class="ppm-method-num">03 / SISTEMA</span><strong>Construir</strong><span>Automatización, IA e integraciones.</span></div>
+              <div class="ppm-method-cell"><span class="ppm-method-num">04 / CONTROL</span><strong>Validar</strong><span>Pruebas, calidad y excepciones.</span></div>
+              <div class="ppm-method-cell"><span class="ppm-method-num">05 / ADOPCIÓN</span><strong>Implantar</strong><span>Documentación, soporte y uso real.</span></div>
+              <div class="ppm-method-cell"><span class="ppm-method-num">06 / MEJORA</span><strong>Medir</strong><span>Indicadores, alertas y evolución.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ppm-proof" aria-label="Hitos de marca profesional">
+        <div class="ppm-proof-item"><div class="ppm-proof-value">6 sectores</div><div class="ppm-proof-label">educación, e-commerce, salud, hacienda, vivienda y recursos humanos</div></div>
+        <div class="ppm-proof-item"><div class="ppm-proof-value">7+ años</div><div class="ppm-proof-label">transformando datos y procesos en mejores decisiones</div></div>
+        <div class="ppm-proof-item"><div class="ppm-proof-value">End-to-end</div><div class="ppm-proof-label">de la necesidad de negocio a la implantación y adopción</div></div>
+      </section>
+
+      <section class="ppm-projects" id="ppm-projects">
+        <header class="ppm-section-head">
+          <div><span class="ppm-eyebrow">Proyectos seleccionados</span><h2>Transformación aplicada a procesos reales.</h2></div>
+          <p class="ppm-section-note">Cada caso explica el problema, el criterio de solución, mi papel y el impacto. Los detalles sensibles permanecen anonimizados.</p>
+        </header>
+
+        <div class="ppm-project-grid">
+          <article class="ppm-project-card ppm-wide">
+            <div class="ppm-card-art ppm-art-orange" aria-hidden="true">
+              <div class="ppm-mini-flow">
+                <div class="ppm-mini-box">Skill</div><div class="ppm-mini-arrow">→</div><div class="ppm-mini-box">Informes finales</div>
+              </div>
+            </div>
+            <div class="ppm-card-body">
+              <span class="ppm-card-num">01 · IA + automatización de decisiones</span>
+              <h3>Skill de perfiles docentes</h3>
+              <p class="ppm-card-desc">Un proceso completo integrado en una skill: cualquier persona autorizada introduce el título y obtiene la información y los entregables necesarios.</p>
+              <div class="ppm-card-footer"><div class="ppm-card-stat"><strong>30+</strong><span>titulaciones en menos de seis meses</span></div><button class="ppm-open-project" type="button" data-project="perfiles">Ver caso →</button></div>
+            </div>
+          </article>
+
+          <article class="ppm-project-card ppm-wide">
+            <div class="ppm-card-art ppm-art-blue" aria-hidden="true">
+              <div class="ppm-mini-docs"><div class="ppm-mini-doc"><div class="ppm-doc-line"></div><div class="ppm-doc-line ppm-doc-line-short"></div><div class="ppm-doc-check">✓</div></div><div class="ppm-mini-doc"><div class="ppm-doc-line ppm-doc-line-short"></div><div class="ppm-doc-line"></div><div class="ppm-doc-check">✓</div></div><div class="ppm-mini-doc"><div class="ppm-doc-line"></div><div class="ppm-doc-line ppm-doc-line-short"></div><div class="ppm-doc-check">✓</div></div></div>
+            </div>
+            <div class="ppm-card-body">
+              <span class="ppm-card-num">02 · Automatización documental</span>
+              <h3>PDF Guardian</h3>
+              <p class="ppm-card-desc">Creación y primera lectura automática de 1.200 documentos para detectar ausentes e incorrectos antes de su corrección y carga conjunta.</p>
+              <div class="ppm-card-footer"><div class="ppm-card-stat"><strong>1.200</strong><span>PDFs gestionados de extremo a extremo</span></div><button class="ppm-open-project" type="button" data-project="guardian">Ver caso →</button></div>
+            </div>
+          </article>
+
+          <article class="ppm-project-card">
+            <div class="ppm-card-art ppm-art-green" aria-hidden="true">
+              <div class="ppm-mini-db"><div class="ppm-db-column"><strong>Maestros</strong>programas<br>asignaturas</div><div class="ppm-db-column"><strong>Gobierno</strong>calidad<br>codificación</div><div class="ppm-db-column"><strong>Históricos</strong>calendario<br>cargas</div></div>
+            </div>
+            <div class="ppm-card-body">
+              <span class="ppm-card-num">03 · Gobierno del dato</span>
+              <h3>Coordinación del ERP</h3>
+              <p class="ppm-card-desc">Coordinación y calidad de maestros e históricos para configurar el nuevo ERP con información fiable y responsabilidades claras.</p>
+              <div class="ppm-card-footer"><div class="ppm-card-stat"><strong>3 áreas</strong><span>información coordinada</span></div><button class="ppm-open-project" type="button" data-project="didoseg">Ver caso →</button></div>
+            </div>
+          </article>
+
+          <article class="ppm-project-card">
+            <div class="ppm-card-art ppm-art-yellow" aria-hidden="true">
+              <div class="ppm-mini-dashboard"><div class="ppm-dash-row"><strong>Fase vigente</strong><span>01/09</span><div class="ppm-progress-track"><div class="ppm-progress-fill"></div></div></div></div>
+            </div>
+            <div class="ppm-card-body">
+              <span class="ppm-card-num">04 · BI + UX/UI</span>
+              <h3>Seguimiento de titulaciones</h3>
+              <p class="ppm-card-desc">De 16 columnas de fechas difíciles de leer a una vista ejecutiva con fase vigente, fecha y barra de progreso.</p>
+              <div class="ppm-card-footer"><div class="ppm-card-stat"><strong>Diario</strong><span>SharePoint + Power BI</span></div><button class="ppm-open-project" type="button" data-project="dashboard">Ver caso →</button></div>
+            </div>
+          </article>
+
+          <article class="ppm-project-card">
+            <div class="ppm-card-art ppm-art-plum" aria-hidden="true">
+              <div class="ppm-mini-indicators"><div class="ppm-indicator-tile">Académicos</div><div class="ppm-indicator-tile">Técnicos</div><div class="ppm-indicator-tile">Operativos</div><div class="ppm-indicator-tile">Encuestas</div></div>
+            </div>
+            <div class="ppm-card-body">
+              <span class="ppm-card-num">05 · Calidad + gobernanza</span>
+              <h3>Sistema de indicadores SIGC</h3>
+              <p class="ppm-card-desc">Más de 50 indicadores de naturaleza y periodicidad diversa para revisar el funcionamiento de la universidad y orientar mejoras.</p>
+              <div class="ppm-card-footer"><div class="ppm-card-stat"><strong>50+</strong><span>indicadores transversales</span></div><button class="ppm-open-project" type="button" data-project="sigc">Ver caso →</button></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="ppm-other">
+        <div class="ppm-other-inner">
+          <div class="ppm-other-head"><div><span class="ppm-eyebrow">Experiencia anterior y formación aplicada</span><h2>La misma capacidad en distintos contextos.</h2></div><p>Una selección que muestra una evolución sostenida desde análisis y operaciones hasta automatización, inteligencia de negocio e IA aplicada.</p></div>
+          <div class="ppm-other-list">
+            <div class="ppm-other-row" data-project="github-adecco-clima" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">06</span><strong>Auditoría de clima laboral</strong><span>Análisis cuantitativo y cualitativo de encuestas para convertir percepciones en recomendaciones.</span><span class="ppm-other-tool">Adecco · Consultoría</span></div>
+            <div class="ppm-other-row" data-project="github-control-entrada" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">07</span><strong>Control de entrada y estandarización</strong><span>Formulario y macros para normalizar incidencias y mejorar la calidad del dato desde el origen.</span><span class="ppm-other-tool">NATURALEX · Postventa</span></div>
+            <div class="ppm-other-row" data-project="github-consolidacion-profesorado" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">08</span><strong>Consolidación de datos históricos</strong><span>Unificación de seis años de registros de profesorado en una base coherente.</span><span class="ppm-other-tool">VIU · Python</span></div>
+            <div class="ppm-other-row" data-project="github-modelo-profesorado" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">09</span><strong>Modelo de datos para cálculo de profesorado</strong><span>Integración de datos docentes y automatización de ratios para reporting académico.</span><span class="ppm-other-tool">VIU · Power Query</span></div>
+            <div class="ppm-other-row" data-project="github-web-scraping" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">10</span><strong>Inteligencia competitiva mediante web scraping</strong><span>Extracción automatizada de precios y catálogos para apoyar decisiones de pricing.</span><span class="ppm-other-tool">NATURALEX · Marketplaces</span></div>
+            <div class="ppm-other-row" data-project="github-encuestas-reporting" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">11</span><strong>Reporting masivo para encuestas</strong><span>Consolidación de CSV y generación automática de más de 100 informes.</span><span class="ppm-other-tool">VIU · Python</span></div>
+            <div class="ppm-other-row" data-project="github-ranking" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">12</span><strong>Reingeniería del ranking universitario</strong><span>Modelo Power BI dinámico para comparar indicadores universitarios.</span><span class="ppm-other-tool">VIU · Power BI</span></div>
+            <div class="ppm-other-row" data-project="github-marketplace" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">13</span><strong>Dashboard global de ventas Marketplace</strong><span>Panel unificado para analizar ventas internacionales por canal y producto.</span><span class="ppm-other-tool">NATURALEX · Power BI</span></div>
+            <div class="ppm-other-row" data-project="github-sql-postgresql" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">14</span><strong>SQL y diseño de bases de datos PostgreSQL</strong><span>Consultas complejas, unión de fuentes y diseño de estructuras para análisis.</span><span class="ppm-other-tool">Formación · SQL</span></div>
+            <div class="ppm-other-row" data-project="github-dynamics" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">15</span><strong>Consultoría funcional y migración operativa</strong><span>Reorganización de información académica para una base relacional en Dynamics.</span><span class="ppm-other-tool">VIU · Dynamics</span></div>
+            <div class="ppm-other-row" data-project="github-stata-sns" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">16</span><strong>Análisis multivariante del Sistema Nacional de Salud</strong><span>Síntesis estadística de indicadores sanitarios para comparar comunidades autónomas.</span><span class="ppm-other-tool">Hacienda · Stata</span></div>
+            <div class="ppm-other-row" data-project="github-r-salarios" role="button" tabindex="0"><span class="ppm-other-index ppm-mono">17</span><strong>Modelización de salarios y participación laboral</strong><span>Modelos econométricos para estudiar brecha salarial y participación laboral.</span><span class="ppm-other-tool">Formación · R</span></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="ppm-footer">
+        <div><strong>Economista especializado en transformación digital.</strong><span>IA aplicada · Automatización · Datos · Valencia / remoto</span></div>
+        <div class="ppm-footer-contact-links" aria-label="Canales de contacto">
+          <a href="https://wa.me/34654033645" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pablolopezgil1990@gmail.com">Correo</a>
+          <a href="https://www.linkedin.com/in/pablolopezeconomista/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+
+    <section class="ppm-detail" hidden aria-live="polite">
+      <div class="ppm-detail-top"><div class="ppm-detail-inner"><button class="ppm-button ppm-button-ghost ppm-back" type="button"><i data-lucide="arrow-left" aria-hidden="true"></i> Volver a proyectos</button></div></div>
+      <div class="ppm-detail-hero">
+        <div class="ppm-detail-hero-copy">
+          <span class="ppm-detail-label"></span>
+          <h2 class="ppm-detail-title"></h2>
+          <p class="ppm-detail-summary"></p>
+          <div class="ppm-tags"></div>
+          <div class="ppm-detail-metrics"></div>
+        </div>
+        <div class="ppm-detail-visual" role="img"></div>
+      </div>
+      <div class="ppm-story">
+        <div class="ppm-story-grid">
+          <article class="ppm-story-block"><span class="ppm-small-label">El reto</span><h3 class="ppm-challenge-title"></h3><p class="ppm-challenge"></p></article>
+          <article class="ppm-story-block"><span class="ppm-small-label">La solución</span><h3 class="ppm-solution-title"></h3><p class="ppm-solution"></p></article>
+          <article class="ppm-story-block"><span class="ppm-small-label">Mi papel</span><h3>Dirección de principio a fin</h3><ul class="ppm-role"></ul></article>
+          <article class="ppm-story-block"><span class="ppm-small-label">Resultado</span><h3>Valor aportado</h3><ul class="ppm-impact"></ul></article>
+          <div class="ppm-quote"></div>
+        </div>
+        <p class="ppm-confidentiality">Caso presentado con información funcional y datos agregados. No se muestran datos personales, documentación interna, código ni configuraciones propietarias.</p>
+      </div>
+      <footer class="ppm-footer"><div><strong>¿Quieres ver otro proyecto?</strong><span>Vuelve a la selección principal para seguir explorando.</span></div><button class="ppm-back ppm-button" type="button">Ver todos los proyectos <i data-lucide="grid-2x2" aria-hidden="true"></i></button></footer>
+    </section>
+  </main>
+</div>
+
+<script>
+  (() => {
+    const root = document.getElementById('pablo-portfolio-master');
+    if (!root) return;
+
+    const projects = {
+      perfiles: {
+        label: '01 · IA + automatización de decisiones',
+        title: 'Skill de perfiles docentes',
+        summary: 'Un sistema accesible para toda la organización: la persona indica únicamente el título y la skill obtiene la información, aplica las reglas y genera los perfiles y entregables necesarios.',
+        tags: ['Skill organizativa', 'Python', 'IA aplicada', 'Excel + Word', 'Revisión humana'],
+        metrics: [['30+', 'titulaciones'], ['1 dato', 'título como entrada'], ['< 6 meses', 'alcance logrado']],
+        visualLabel: 'Del título al entregable validable',
+        visualClass: 'ppm-art-orange',
+        visual: '<div class="ppm-detail-art-title"><span>skill.perfiles_docentes</span><span>USO ORGANIZATIVO</span></div><div class="ppm-art-flow-large"><div class="ppm-art-node"><strong>Título</strong><br>chat conversacional</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Skill</strong><br>información + reglas<br>cálculos + IA</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Informes finales</strong><br>claustro + perfiles<br>Excel + Word</div></div>',
+        challengeTitle: 'Un criterio valioso, pero difícil de escalar',
+        challenge: 'La creación de perfiles docentes dependía de búsquedas, cálculos, interpretación académica y trabajo manual en varios formatos. El conocimiento del proceso estaba distribuido y el resultado podía variar según quién lo ejecutara.',
+        solutionTitle: 'Convertir el proceso en una capacidad compartida',
+        solution: 'El proyecto integra el flujo completo en una skill. Python mantiene deterministas los cálculos críticos; la IA se reserva para la elaboración cualitativa; una base maestra aporta la información y la revisión humana controla excepciones y entrega final.',
+        role: ['Análisis y planificación funcional del proceso.', 'Traducción del criterio académico a reglas, cálculos y excepciones.', 'Construcción y evolución del motor modular.', 'Diseño de entregables y controles de revisión.', 'Integración final en una skill utilizable por personal no técnico.'],
+        impact: ['Un único punto de entrada: el título.', 'Proceso reproducible y accesible para usuarios autorizados.', 'Más de 30 titulaciones trabajadas en menos de seis meses.', 'Criterio organizativo preservado y revisión centrada en excepciones.'],
+        quote: 'No automaticé un Excel. Automaticé el proceso de decisión que había detrás.'
+      },
+      guardian: {
+        label: '02 · Automatización documental',
+        title: 'PDF Guardian',
+        summary: 'Sistema integral para crear, auditar, corregir y publicar 1.200 documentos de acceso, admisión, requisitos y homologación, asegurando una corrección documental del 100%.',
+        tags: ['Python', 'Reglas + variables', 'QA documental', 'Lectura de ausentes', 'Web + backoffice'],
+        metrics: [['1.200', 'documentos'], ['4 × 3 × 4 × 25', 'cobertura'], ['100%', 'corrección documental']],
+        visualLabel: 'Estrategia por bloques y automatización completa',
+        visualClass: 'ppm-art-blue',
+        visual: '<div class="ppm-detail-art-title"><span>pdf.guardian</span><span>1.200 DOCUMENTOS</span></div><div class="ppm-guardian-blocks"><div class="ppm-guardian-block"><strong>01 · Crear</strong>4 bloques × 3 universidades × 4 estudios × 25 países.</div><div class="ppm-guardian-block"><strong>02 · Primera lectura</strong>Detectar ausentes y documentos incorrectos.</div><div class="ppm-guardian-block"><strong>03 · Corregir</strong>Contenido, vocabulario, erratas y maquetación.</div><div class="ppm-guardian-block"><strong>04 · Publicar</strong>Cargar juntos los ausentes y los reemplazos.</div></div><div class="ppm-guardian-output">RESULTADO → 100% DE CORRECCIÓN DOCUMENTAL EN WEB Y BACKOFFICE</div>',
+        challengeTitle: 'Documentos distribuidos y calidad desigual',
+        challenge: 'La documentación de cuatro bloques presentaba ausencias y diferencias de vocabulario, erratas o maquetación. El cruce de 3 universidades emisoras, 4 tipos de estudio y 25 países elevaba el alcance a 1.200 documentos.',
+        solutionTitle: 'Estandarizar sin ignorar las excepciones',
+        solution: 'Se trabajó por bloques, desde los elementos más estandarizables hasta los menos homogéneos, reforzando un diccionario de variables, reglas y excepciones. Tras generar los documentos, el sistema realizaba una primera lectura, identificaba ausentes e incorrectos y cargaba conjuntamente los nuevos y los reemplazos.',
+        role: ['Definición de la estrategia de estandarización por bloques.', 'Construcción del diccionario de variables, vocabulario y reglas.', 'Automatización de la creación y la primera lectura documental.', 'Corrección, sustitución y carga de documentos ausentes.', 'Coordinación del proceso completo hasta web y backoffice.'],
+        impact: ['1.200 documentos cubriendo cuatro bloques documentales.', 'Detección automática de ausentes e incorrectos.', 'Carga conjunta de nuevos documentos y reemplazos.', 'Corrección documental del 100% y armonización corporativa.'],
+        quote: 'La automatización no terminaba al crear el documento: terminaba cuando el documento correcto estaba publicado.'
+      },
+      didoseg: {
+        label: '03 · Gobierno del dato',
+        title: 'DIDOSEG · Preparación de datos para ESISTE',
+        summary: 'Coordinación de maestros e históricos para asegurar que el nuevo ERP reciba información oficial, coherente y mantenible de programas, asignaturas, estudiantes y profesorado.',
+        tags: ['Gobierno del dato', 'Master data', 'Calidad', 'Modelo relacional', 'Cargas masivas'],
+        metrics: [['3', 'áreas coordinadas'], ['2 capas', 'maestros + históricos'], ['Regular', 'calendario de carga']],
+        visualLabel: 'Responsabilidades claras y dato preparado para el ERP',
+        visualClass: 'ppm-art-green',
+        visual: '<div class="ppm-detail-art-title"><span>gobierno.del_dato</span><span>DIDOSEG → ESISTE</span></div><div class="ppm-governance-visual"><div class="ppm-source-stack"><div class="ppm-source-box">Calidad (gestión integral)<br><strong>programas + asignaturas</strong></div><div class="ppm-source-box">Secretaría<br><strong>estudiantes</strong></div><div class="ppm-source-box">Ordenación y Planificación<br><strong>profesorado</strong></div></div><div class="ppm-art-arrow">→</div><div class="ppm-governance-hub"><strong>Gobierno</strong>codificación<br>relaciones<br>calidad<br>responsables<br>calendario</div><div class="ppm-art-arrow">→</div><div class="ppm-erp-box"><strong>ESISTE</strong>maestros<br>históricos<br>cargas masivas</div></div>',
+        challengeTitle: 'Un ERP nuevo necesita una base fiable',
+        challenge: 'La implantación exigía coordinar información oficial de varias áreas, preservar históricos y asegurar que maestros, relaciones y códigos fueran coherentes antes de las cargas masivas.',
+        solutionTitle: 'Gobernar el dato antes de moverlo',
+        solution: 'Se definieron responsabilidades, criterios de codificación, relaciones y controles de calidad. Calidad asumió la gestión integral de programas y asignaturas; se coordinaron estudiantes con Secretaría y profesorado con Ordenación y Planificación.',
+        role: ['Gestión directa de la información oficial de programas y asignaturas.', 'Coordinación de maestros e históricos con las áreas responsables.', 'Propuesta de mejoras en el diseño de las bases de datos relacionales.', 'Definición de codificación y criterios de calidad.', 'Configuración funcional y calendario regular de cargas masivas.'],
+        impact: ['Información oficial preparada con responsables identificados.', 'Mayor consistencia entre maestros, históricos y relaciones.', 'Proceso recurrente de carga en lugar de actuaciones aisladas.', 'Base sólida para la implantación y evolución del ERP.'],
+        quote: 'Antes de implantar un sistema, hay que decidir quién responde por el dato y qué significa que ese dato sea correcto.'
+      },
+      dashboard: {
+        label: '04 · Business Intelligence + UX/UI',
+        title: 'Dashboard de seguimiento de titulaciones',
+        summary: 'Rediseño de la lectura del progreso: de un Excel con 16 columnas de fechas a una vista directa con fase vigente, fecha vigente y barra de avance.',
+        tags: ['Power BI', 'SharePoint', 'UX/UI', 'Información ejecutiva', 'Actualización diaria'],
+        metrics: [['16 → 3', 'elementos clave'], ['30+', 'titulaciones'], ['Diaria', 'actualización']],
+        visualLabel: 'Antes y después de la arquitectura de información',
+        visualClass: 'ppm-art-yellow',
+        visual: '<div class="ppm-detail-art-title"><span>seguimiento.titulaciones</span><span>POWER BI + SHAREPOINT</span></div><div class="ppm-dash-comparison"><div class="ppm-table-scene"><span class="ppm-panel-label">Antes · una titulación y 16 columnas del proceso</span><div class="ppm-chaos-grid"><span class="ppm-table-head">Titulación</span><span class="ppm-table-head">F01</span><span class="ppm-table-head">F02</span><span class="ppm-table-head">F03</span><span class="ppm-table-head">F04</span><span class="ppm-table-head">F05</span><span class="ppm-table-head">F06</span><span class="ppm-table-head">F07</span><span class="ppm-table-head">F08</span><span class="ppm-table-head">F09</span><span class="ppm-table-head">F10</span><span class="ppm-table-head">F11</span><span class="ppm-table-head">F12</span><span class="ppm-table-head">F13</span><span class="ppm-table-head">F14</span><span class="ppm-table-head">F15</span><span class="ppm-table-head">F16</span><span class="ppm-degree-cell">Máster en Dirección</span><span>08/01</span><span>15/01</span><span>29/01</span><span>12/02</span><span>26/02</span><span>11/03</span><span>25/03</span><span>08/04</span><span>22/04</span><span>06/05</span><span>20/05</span><span>03/06</span><span>17/06</span><span>01/07</span><span>—</span><span>—</span></div></div><div class="ppm-table-scene"><span class="ppm-panel-label">Después · estado completo en una sola mirada</span><div class="ppm-clear-grid"><span class="ppm-table-head">Titulación</span><span class="ppm-table-head">Fase vigente</span><span class="ppm-table-head">Fecha vigente</span><span class="ppm-table-head">Progreso</span><span>Máster en Dirección</span><span>Validación</span><span>01/07/2026</span><div class="ppm-clear-progress"><span>81%</span><div class="ppm-progress-track"><div class="ppm-progress-fill" style="width:81%"></div></div></div><span>Grado en Psicología</span><span>Informe final</span><span>29/08/2026</span><div class="ppm-clear-progress"><span>94%</span><div class="ppm-progress-track"><div class="ppm-progress-fill" style="width:94%"></div></div></div></div></div></div>',
+        challengeTitle: 'Los datos existían, pero la lectura era costosa',
+        challenge: 'Las 16 columnas registraban cuándo cada titulación cambiaba de fase. Esa estructura preservaba el histórico, pero producía un Excel muy horizontal: para comprender el estado había que desplazarse y reconstruir mentalmente el progreso.',
+        solutionTitle: 'Diseñar para responder en segundos',
+        solution: 'La vista de Power BI sintetiza la información operativa en fase vigente, fecha vigente y una barra de progreso. Se conecta a un fichero de SharePoint actualizado cada mañana y está disponible para toda la universidad.',
+        role: ['Análisis de la necesidad y del patrón de consulta real.', 'Replanteamiento de la arquitectura de información.', 'Diseño UX/UI de una lectura visual y compacta.', 'Construcción del dashboard en Power BI.', 'Conexión con SharePoint y automatización de la actualización diaria.'],
+        impact: ['Más de 30 titulaciones visibles en una vista homogénea.', 'Menos desplazamiento y menor carga cognitiva.', 'Información actualizada cada mañana.', 'Acceso transversal para toda la universidad.'],
+        quote: 'Un dashboard no aporta valor por mostrar más datos, sino por reducir el tiempo necesario para entenderlos.'
+      },
+      sigc: {
+        label: '05 · Calidad + gobernanza',
+        title: 'Sistema de indicadores SIGC',
+        summary: 'Diseño y seguimiento de más de 50 indicadores académicos, técnicos, operativos y de satisfacción para revisar el funcionamiento de la universidad y orientar acciones de mejora.',
+        tags: ['SIGC', 'Indicadores', 'Gobernanza', 'Encuestas', 'Mejora continua'],
+        metrics: [['50+', 'indicadores'], ['4', 'familias principales'], ['Variable', 'periodicidad']],
+        visualLabel: 'Cobertura transversal y periodicidad según naturaleza',
+        visualClass: 'ppm-art-plum',
+        visual: '<div class="ppm-detail-art-title"><span>sistema.indicadores</span><span>SIGC</span></div><div class="ppm-sigc-grid"><div class="ppm-sigc-tile"><strong>Académicos</strong>Resultados y funcionamiento de titulaciones.</div><div class="ppm-sigc-tile"><strong>Técnicos</strong>Por ejemplo, funcionamiento del campus.</div><div class="ppm-sigc-tile"><strong>Operativos</strong>Prácticas bien asignadas y reuniones celebradas.</div><div class="ppm-sigc-tile"><strong>Satisfacción</strong>Encuestas y percepción de los grupos de interés.</div></div><div class="ppm-cadence"><span>CONTINUA</span><span>MENSUAL</span><span>TRIMESTRAL</span><span>ANUAL</span></div>',
+        challengeTitle: 'Medir una organización diversa con criterios comparables',
+        challenge: 'La mayoría de áreas universitarias aportan información de naturaleza distinta. No todos los indicadores se producen con la misma frecuencia ni responden a la misma lógica, pero todos deben ser interpretables dentro del sistema de calidad.',
+        solutionTitle: 'Un sistema común que respeta cada proceso',
+        solution: 'Los indicadores se organizan por objetivo y naturaleza, con periodicidades adaptadas. Incluyen resultados académicos, funcionamiento técnico, procesos operativos y encuestas que alimentan la revisión del SIGC.',
+        role: ['Definición y estructuración de indicadores con las áreas implicadas.', 'Coordinación de fuentes y responsables.', 'Diseño de criterios de control y periodicidad.', 'Integración de indicadores académicos, técnicos, operativos y encuestas.', 'Preparación de información para revisión y toma de decisiones.'],
+        impact: ['Más de 50 indicadores con cobertura transversal.', 'Visión conjunta de procesos muy distintos.', 'Seguimiento adaptado a la naturaleza de cada indicador.', 'Información accionable para revisión y mejora continua.'],
+        quote: 'Gobernar el dato también significa acordar qué se mide, quién lo valida y cuándo debe revisarse.'
+      },
+      'github-adecco-clima': {
+        label: '06 · Consultoría + People Analytics',
+        title: 'Auditoría de clima laboral para Adecco',
+        summary: 'Análisis cuantitativo y cualitativo de encuestas para convertir la percepción de los empleados en indicadores y recomendaciones para dirección.',
+        tags: ['Excel', 'People Analytics', 'Análisis cualitativo', 'Consultoría'],
+        metrics: [['Cuantitativo + cualitativo', 'análisis híbrido'], ['Grandes cuentas', 'encuestas'], ['Dirección', 'hoja de ruta']],
+        visualLabel: 'De la encuesta a las áreas de acción',
+        visualClass: 'ppm-art-orange',
+        visual: '<div class="ppm-detail-art-title"><span>clima.laboral</span><span>ADECCO</span></div><div class="ppm-art-flow-large"><div class="ppm-art-node"><strong>Encuestas</strong><br>respuestas + segmentos</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Análisis</strong><br>indicadores + sentimiento</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Acción</strong><br>fortalezas + mejoras</div></div>',
+        challengeTitle: 'Datos masivos con una parte que no cabe en una cifra',
+        challenge: 'Las encuestas combinaban métricas numéricas y respuestas abiertas. La dirección necesitaba entender los resultados y convertirlos en decisiones sobre retención y satisfacción.',
+        solutionTitle: 'Un diagnóstico que une números y contexto',
+        solution: 'Se estandarizó el paso desde los datos brutos hasta el informe, se segmentaron las respuestas y se combinaron indicadores con patrones cualitativos y de sentimiento.',
+        role: ['Diseño del ecosistema de plantillas Excel-Word.', 'Segmentación por antigüedad, departamento, sección y jornada.', 'Análisis de indicadores de clima laboral.', 'Clasificación de respuestas abiertas y detección de patrones.', 'Elaboración de informes ejecutivos con recomendaciones.'],
+        impact: ['Análisis más escalable para grandes cuentas.', 'Identificación de problemas que no aparecían en los indicadores numéricos.', 'Recomendaciones tácticas para los departamentos de Recursos Humanos.'],
+        quote: 'Un informe de clima laboral tiene que explicar qué ocurre y qué puede hacer la dirección con esa información.'
+      },
+      'github-control-entrada': {
+        label: '07 · Calidad del dato + NATURALEX',
+        title: 'Control de entrada y estandarización de datos',
+        summary: 'Formulario y macros para normalizar las incidencias de Postventa y mejorar la calidad del dato desde el origen.',
+        tags: ['Excel', 'VBA', 'Formulario', 'Calidad del dato'],
+        metrics: [['Postventa', 'área'], ['Entrada', 'punto de control'], ['Reporting', 'salida fiable']],
+        visualLabel: 'De la entrada libre al registro estructurado',
+        visualClass: 'ppm-art-blue',
+        visual: '<div class="ppm-detail-art-title"><span>entrada.postventa</span><span>NATURALEX</span></div><div class="ppm-art-flow-large"><div class="ppm-art-node"><strong>Incidencia</strong><br>entrada libre</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Formulario</strong><br>campos + reglas</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Maestro</strong><br>dato explotable</div></div>',
+        challengeTitle: 'Un problema de reporting que empezaba en la captura',
+        challenge: 'El departamento de Postventa registraba incidencias telefónicas sin un método normalizado. Los datos eran heterogéneos y difíciles de analizar.',
+        solutionTitle: 'Controlar la calidad antes de analizar',
+        solution: 'Se diseñó un formulario con campos obligatorios y reglas de negocio, y se automatizó con VBA el volcado a una tabla maestra.',
+        role: ['Diseño de la interfaz de captura.', 'Definición de campos y restricciones de entrada.', 'Desarrollo de macros VBA.', 'Eliminación de redundancias y aplicación de reglas.', 'Preparación de una estructura reutilizable para reporting.'],
+        impact: ['Registros más uniformes.', 'Menos ruido y errores en la información de Postventa.', 'Base preparada para análisis de rendimiento y patrones de fallo.'],
+        quote: 'La calidad del reporting se decide muchas veces antes de abrir el dashboard.'
+      },
+      'github-consolidacion-profesorado': {
+        label: '08 · Data Engineering + VIU',
+        title: 'Consolidación y armonización de datos históricos',
+        summary: 'Unificación de seis años de registros de profesorado en una base de datos coherente mediante la normalización de estructuras heterogéneas.',
+        tags: ['Python', 'Pandas', 'Normalización', 'Reporting'],
+        metrics: [['39.344', 'registros'], ['6 años', 'unificados'], ['70', 'columnas comunes']],
+        visualLabel: 'De archivos anuales a una base histórica',
+        visualClass: 'ppm-art-green',
+        visual: '<div class="ppm-detail-art-title"><span>histórico.profesores</span><span>VIU</span></div><div class="ppm-governance-visual"><div class="ppm-source-stack"><div class="ppm-source-box">2019<br><strong>estructura A</strong></div><div class="ppm-source-box">2020—2023<br><strong>variantes</strong></div><div class="ppm-source-box">2024<br><strong>estructura B</strong></div></div><div class="ppm-art-arrow">→</div><div class="ppm-governance-hub"><strong>CANON</strong>mapeo<br>limpieza<br>trazabilidad</div><div class="ppm-art-arrow">→</div><div class="ppm-erp-box"><strong>MAESTRO</strong>base histórica<br>explotable</div></div>',
+        challengeTitle: 'La historia existía, pero estaba fragmentada',
+        challenge: 'Los archivos anuales de profesorado cambiaban nombres de columnas, tipos de datos y criterios de registro. Esa variación impedía comparar la evolución de la plantilla.',
+        solutionTitle: 'Crear un lenguaje común para todos los años',
+        solution: 'Se construyó un motor de ingesta y un diccionario de mapeo para canonizar atributos, limpiar cabeceras y consolidar los registros en un dataset maestro.',
+        role: ['Localización y extracción de tablas en libros de Excel.', 'Definición del diccionario de atributos comunes.', 'Normalización algorítmica de cabeceras y duplicados.', 'Consolidación y reordenación del dataset.', 'Preparación de una base histórica para análisis comparativo.'],
+        impact: ['39.344 registros unificados.', 'Comparabilidad entre 2019 y 2024.', 'Menos trabajo manual para preparar análisis de profesorado.'],
+        quote: 'Antes de analizar una tendencia hay que asegurarse de que la misma columna significa lo mismo cada año.'
+      },
+      'github-modelo-profesorado': {
+        label: '09 · Modelo de datos + VIU',
+        title: 'Modelo de datos para cálculo de profesorado',
+        summary: 'Sistema automatizado para calcular ratios de profesorado mediante la integración de datos docentes, asignaturas y titulaciones.',
+        tags: ['Power Query', 'ETL', 'Modelo relacional', 'Reporting'],
+        metrics: [['Masivo', 'cálculo'], ['Docente', 'clave común'], ['3 niveles', 'de análisis']],
+        visualLabel: 'De fuentes docentes a ratios auditables',
+        visualClass: 'ppm-art-yellow',
+        visual: '<div class="ppm-detail-art-title"><span>ratios.profesores</span><span>POWER QUERY</span></div><div class="ppm-dash-comparison"><div class="ppm-table-scene"><span class="ppm-panel-label">Fuentes · titulaciones y asignaturas</span><div class="ppm-chaos-grid"><span class="ppm-table-head">ERP</span><span class="ppm-table-head">Docentes</span><span class="ppm-table-head">Asignaturas</span><span class="ppm-table-head">Titulaciones</span></div></div><div class="ppm-table-scene"><span class="ppm-panel-label">Salida · ratios actualizables</span><div class="ppm-clear-grid"><span class="ppm-table-head">Título</span><span class="ppm-table-head">Facultad</span><span class="ppm-table-head">Universidad</span><span>métricas docentes</span><span>modelo relacionado</span><span>actualizable</span></div></div></div>',
+        challengeTitle: 'Una métrica sencilla con una relación de datos compleja',
+        challenge: 'El reporte anual exigía cruzar asignaturas, titulaciones y fichas individuales del profesorado. El recuento manual era difícil de abarcar y susceptible de errores.',
+        solutionTitle: 'Modelar las relaciones antes de calcular',
+        solution: 'Se integraron las fuentes mediante Power Query y se creó un modelo relacional con el docente como clave común para generar ratios y análisis a distintos niveles.',
+        role: ['Conexión e integración de fuentes del ERP.', 'Limpieza y normalización de nombres y registros.', 'Diseño del modelo relacional.', 'Definición de relaciones entre docentes, asignaturas y titulaciones.', 'Preparación de una salida actualizable para reporting.'],
+        impact: ['Cálculo masivo sin recuento manual.', 'Correcciones propagadas de forma coherente.', 'Análisis por título, facultad y universidad.'],
+        quote: 'Un cálculo fiable empieza por decidir qué entidades deben estar relacionadas.'
+      },
+      'github-web-scraping': {
+        label: '10 · Market Intelligence + NATURALEX',
+        title: 'Automatización de inteligencia competitiva',
+        summary: 'Extracción automatizada de precios y catálogos de competidores para apoyar decisiones de pricing con información actualizada.',
+        tags: ['Python', 'Web scraping', 'Pricing', 'Market Intelligence'],
+        metrics: [['Web', 'fuentes externas'], ['Automático', 'seguimiento'], ['Pricing', 'decisión']],
+        visualLabel: 'De portales externos a información de mercado',
+        visualClass: 'ppm-art-orange',
+        visual: '<div class="ppm-detail-art-title"><span>inteligencia.competitiva</span><span>PYTHON</span></div><div class="ppm-art-flow-large"><div class="ppm-art-node"><strong>Competidores</strong><br>precios + catálogos</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Extracción</strong><br>scraping + limpieza</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Pricing</strong><br>comparación</div></div>',
+        challengeTitle: 'Precios cambiantes y seguimiento manual',
+        challenge: 'El control de precios de la competencia ofrecía una visión fragmentada y desactualizada. La decisión de pricing necesitaba datos más frecuentes y comparables.',
+        solutionTitle: 'Convertir la observación en un flujo recurrente',
+        solution: 'Se planteó automatizar la navegación, extracción, normalización y comparación de información procedente de distintos portales.',
+        role: ['Definición de la información competitiva relevante.', 'Diseño del flujo de extracción automatizada.', 'Normalización de precios y catálogos.', 'Preparación de datos comparables.', 'Orientación del resultado a decisiones de pricing.'],
+        impact: ['Menor dependencia de revisiones manuales.', 'Información más actualizada para comparar ofertas.', 'Base para reaccionar ante cambios del mercado.'],
+        quote: 'La inteligencia competitiva empieza cuando observar el mercado deja de depender de una revisión aislada.'
+      },
+      'github-encuestas-reporting': {
+        label: '11 · Automatización + VIU',
+        title: 'Reporting masivo para encuestas',
+        summary: 'Consolidación de bases de datos de encuestas y generación automática de más de 100 informes de calidad docente.',
+        tags: ['Python', 'CSV', 'Automatización', 'Calidad docente'],
+        metrics: [['6 cursos', 'histórico'], ['100+', 'informes'], ['Automático', 'generación']],
+        visualLabel: 'De múltiples CSV a informes por titulación',
+        visualClass: 'ppm-art-blue',
+        visual: '<div class="ppm-detail-art-title"><span>reporting.encuestas</span><span>PYTHON</span></div><div class="ppm-guardian-blocks"><div class="ppm-guardian-block"><strong>01 · Unir</strong>CSV de varios cursos.</div><div class="ppm-guardian-block"><strong>02 · Armonizar</strong>Preguntas y estructuras.</div><div class="ppm-guardian-block"><strong>03 · Calcular</strong>Indicadores comparables.</div><div class="ppm-guardian-block"><strong>04 · Entregar</strong>Informes por titulación.</div></div>',
+        challengeTitle: 'El histórico no tenía una estructura constante',
+        challenge: 'Los archivos de encuestas cambiaban en número y orden de preguntas entre cursos. El volumen hacía inviable consolidarlos y reportarlos manualmente.',
+        solutionTitle: 'Programar la consolidación y la salida',
+        solution: 'Se desarrolló un proceso en Python para limpiar, unir y dinamizar los datos, y generar automáticamente los informes específicos de cada titulación.',
+        role: ['Diseño de la arquitectura de consolidación.', 'Gestión de discrepancias entre cuestionarios.', 'Limpieza y transformación de indicadores.', 'Programación de la generación por titulación.', 'Control de la trazabilidad de las cifras.'],
+        impact: ['Más de 100 informes generados automáticamente.', 'Análisis de seis cursos académicos.', 'Menos riesgo de errores de copia y pegado.'],
+        quote: 'Automatizar un informe también es conservar la trazabilidad de cada cifra que contiene.'
+      },
+      'github-ranking': {
+        label: '12 · Business Intelligence + VIU',
+        title: 'Reingeniería del ranking universitario',
+        summary: 'Transformación de una estructura plana en un modelo Power BI dinámico para comparar indicadores universitarios.',
+        tags: ['Power BI', 'Modelado', 'Rankings', 'Análisis comparativo'],
+        metrics: [['Dinámico', 'modelo'], ['Multivariable', 'comparación'], ['Universidades', 'ámbito']],
+        visualLabel: 'De columnas fijas a comparación dinámica',
+        visualClass: 'ppm-art-green',
+        visual: '<div class="ppm-detail-art-title"><span>ranking.universitario</span><span>POWER BI</span></div><div class="ppm-governance-visual"><div class="ppm-source-stack"><div class="ppm-source-box">Ranking CYD<br><strong>estructura plana</strong></div><div class="ppm-source-box">Indicadores<br><strong>columnas fijas</strong></div></div><div class="ppm-art-arrow">→</div><div class="ppm-governance-hub"><strong>Modelo</strong>métricas<br>universidades<br>comparación</div><div class="ppm-art-arrow">→</div><div class="ppm-erp-box"><strong>POWER BI</strong>lectura dinámica</div></div>',
+        challengeTitle: 'Un ranking difícil de explorar',
+        challenge: 'Cada indicador ocupaba una columna distinta. El usuario tenía que trabajar con visualizaciones estáticas y no podía cambiar de métrica con agilidad.',
+        solutionTitle: 'Replantear el modelo para responder preguntas',
+        solution: 'Se reorganizó la estructura para permitir comparativas dinámicas entre indicadores y universidades dentro de un mismo marco de análisis.',
+        role: ['Análisis de las limitaciones del modelo original.', 'Reingeniería de la estructura de datos.', 'Definición de relaciones y métricas comparables.', 'Diseño del modelo Power BI.', 'Preparación de una lectura más flexible para el usuario final.'],
+        impact: ['Comparación dinámica de indicadores.', 'Menos dependencia de visualizaciones aisladas.', 'Mayor flexibilidad para el análisis universitario.'],
+        quote: 'Un modelo de datos útil permite cambiar la pregunta sin reconstruir todo el informe.'
+      },
+      'github-marketplace': {
+        label: '13 · E-commerce + NATURALEX',
+        title: 'Dashboard global de ventas Marketplace',
+        summary: 'Panel unificado para analizar ventas de marketplaces internacionales por canal, producto y rentabilidad.',
+        tags: ['Power BI', 'ETL', 'Marketplaces', 'Multidivisa'],
+        metrics: [['5 países', 'orígenes'], ['Gerencia + managers', 'lecturas'], ['Tiempo real', 'tipos de cambio']],
+        visualLabel: 'De marketplaces internacionales a una visión común',
+        visualClass: 'ppm-art-yellow',
+        visual: '<div class="ppm-detail-art-title"><span>ventas.marketplace</span><span>NATURALEX</span></div><div class="ppm-dash-comparison"><div class="ppm-table-scene"><span class="ppm-panel-label">Orígenes · formatos y divisas distintas</span><div class="ppm-chaos-grid"><span class="ppm-table-head">FR</span><span class="ppm-table-head">UK</span><span class="ppm-table-head">ES</span><span class="ppm-table-head">IT</span><span class="ppm-table-head">NL</span></div></div><div class="ppm-table-scene"><span class="ppm-panel-label">Salida · visión global</span><div class="ppm-clear-grid"><span class="ppm-table-head">Canal</span><span class="ppm-table-head">Producto</span><span class="ppm-table-head">Margen</span><span>gerencia</span><span>managers</span><span>comparación</span></div></div></div>',
+        challengeTitle: 'Cinco mercados, cinco formas de leer las ventas',
+        challenge: 'Los marketplaces utilizaban formatos, idiomas y divisas diferentes. La dispersión impedía comparar rápidamente el rendimiento global y por canal.',
+        solutionTitle: 'Un modelo común para dos niveles de decisión',
+        solution: 'Se integraron las fuentes, se estandarizaron categorías y divisas y se diseñó un dashboard con lectura estratégica para gerencia y táctica para managers.',
+        role: ['Diseño de la arquitectura de conexión.', 'Estandarización de categorías y divisas.', 'Modelado relacional de ventas.', 'Diseño del dashboard para distintos perfiles.', 'Preparación de métricas comparables por canal y producto.'],
+        impact: ['Visión unificada de las ventas internacionales.', 'Menos horas de consolidación manual.', 'Decisiones más rápidas ante desviaciones por canal o producto.'],
+        quote: 'Un dashboard comercial tiene que permitir leer el conjunto y localizar el detalle que exige una decisión.'
+      },
+      'github-sql-postgresql': {
+        label: '14 · Formación técnica',
+        title: 'SQL y diseño de bases de datos PostgreSQL',
+        summary: 'Especialización formativa para consultar bases corporativas, unir fuentes y estructurar datos para análisis avanzado.',
+        tags: ['Formación', 'SQL', 'PostgreSQL', 'Diseño de datos'],
+        metrics: [['SQL', 'consultas'], ['PostgreSQL', 'entorno'], ['Análisis', 'objetivo']],
+        visualLabel: 'De la consulta a la estructura analítica',
+        visualClass: 'ppm-art-blue',
+        visual: '<div class="ppm-detail-art-title"><span>sql.postgresql</span><span>FORMACIÓN</span></div><div class="ppm-art-flow-large"><div class="ppm-art-node"><strong>Fuentes</strong><br>tablas relacionadas</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Consulta</strong><br>joins + filtros</div><div class="ppm-art-arrow">→</div><div class="ppm-art-node"><strong>Análisis</strong><br>datos preparados</div></div>',
+        challengeTitle: 'Reducir la dependencia de procesos manuales',
+        challenge: 'La formación partió de la necesidad de interactuar directamente con bases de datos corporativas y trabajar con estructuras eficientes para el análisis.',
+        solutionTitle: 'Construir una base técnica reutilizable',
+        solution: 'Se trabajaron consultas complejas, unión de fuentes y diseño de estructuras PostgreSQL orientadas a la explotación analítica.',
+        role: ['Práctica de consultas y filtros.', 'Unión de múltiples fuentes.', 'Estructuración de datos para análisis.', 'Comprensión de relaciones entre tablas.', 'Aplicación de SQL como capacidad formativa.'],
+        impact: ['Mayor autonomía para consultar datos.', 'Base técnica para proyectos de análisis y automatización.', 'Formación diferenciada de la experiencia laboral.'],
+        quote: 'La formación técnica tiene valor cuando amplía las decisiones que puedes tomar sobre los datos.'
+      },
+      'github-dynamics': {
+        label: '15 · Consultoría funcional + VIU',
+        title: 'Consultoría funcional y migración operativa',
+        summary: 'Transformación de información académica descentralizada en una base relacional dentro de Microsoft Dynamics.',
+        tags: ['Microsoft Dynamics', 'Consultoría funcional', 'ERP', 'Gobierno del dato'],
+        metrics: [['ERP', 'implantación'], ['Calidad', 'área coordinadora'], ['Relacional', 'modelo']],
+        visualLabel: 'De documentos dispersos a información gobernada',
+        visualClass: 'ppm-art-green',
+        visual: '<div class="ppm-detail-art-title"><span>migración.funcional</span><span>DYNAMICS</span></div><div class="ppm-governance-visual"><div class="ppm-source-stack"><div class="ppm-source-box">PDF<br><strong>memorias + plazas</strong></div><div class="ppm-source-box">Procesos<br><strong>fases administrativas</strong></div></div><div class="ppm-art-arrow">→</div><div class="ppm-governance-hub"><strong>Calidad</strong>reglas<br>relaciones<br>trazabilidad</div><div class="ppm-art-arrow">→</div><div class="ppm-erp-box"><strong>ERP</strong>información<br>relacional</div></div>',
+        challengeTitle: 'Un proceso crítico repartido en documentos',
+        challenge: 'La información para oficializar titulaciones estaba descentralizada y en formatos no estructurados. Eso dificultaba la trazabilidad y el reporte institucional.',
+        solutionTitle: 'Acompañar la tecnología con una definición funcional',
+        solution: 'Se reorganizaron entidades, relaciones y responsabilidades para llevar la información al ERP y hacer visible el ciclo de vida académico.',
+        role: ['Análisis funcional del proceso de Calidad.', 'Traducción de documentos a entidades y relaciones.', 'Definición de reglas y criterios de calidad.', 'Coordinación de la migración operativa.', 'Protección de la continuidad del reporting institucional.'],
+        impact: ['Información académica más trazable.', 'Menor dependencia de documentos aislados.', 'Base relacional preparada para la evolución del ERP.'],
+        quote: 'Una migración operativa empieza cuando las personas y los procesos entienden qué significa cada dato.'
+      },
+      'github-stata-sns': {
+        label: '16 · Análisis estadístico + Hacienda',
+        title: 'Análisis multivariante del Sistema Nacional de Salud',
+        summary: 'Síntesis estadística de indicadores sanitarios para identificar patrones de gestión y comparar el desempeño de las comunidades autónomas.',
+        tags: ['Stata', 'PCA', 'Econometría', 'Salud pública'],
+        metrics: [['Cientos', 'indicadores'], ['PCA', 'reducción'], ['CC. AA.', 'comparación']],
+        visualLabel: 'De cientos de variables a factores comparables',
+        visualClass: 'ppm-art-plum',
+        visual: '<div class="ppm-detail-art-title"><span>salud.publica</span><span>STATA</span></div><div class="ppm-sigc-grid"><div class="ppm-sigc-tile"><strong>Recursos</strong>Camas y tecnología.</div><div class="ppm-sigc-tile"><strong>Costes</strong>Gasto sanitario.</div><div class="ppm-sigc-tile"><strong>Resultados</strong>Salud y reingresos.</div><div class="ppm-sigc-tile"><strong>Comparación</strong>Factores comunes.</div></div>',
+        challengeTitle: 'Comparar sistemas sanitarios con demasiadas variables',
+        challenge: 'La base combinaba recursos, gasto, satisfacción y resultados de salud. La correlación y la dimensión de los datos impedían una lectura directa.',
+        solutionTitle: 'Reducir la complejidad sin perder rigor',
+        solution: 'Se consolidaron series temporales y se aplicaron correlaciones, análisis de componentes principales, rotación y pruebas de robustez.',
+        role: ['Estructuración del dataset de series temporales.', 'Normalización de variables de distintas fuentes.', 'Ejecución de análisis estadístico en Stata.', 'Interpretación y validación de factores.', 'Preparación de resultados para benchmarking sanitario.'],
+        impact: ['Síntesis de cientos de variables en factores manejables.', 'Comparación basada en evidencia estadística.', 'Lectura más útil para análisis de políticas públicas.'],
+        quote: 'Reducir variables no significa perder información si se conserva la estructura que explica el fenómeno.'
+      },
+      'github-r-salarios': {
+        label: '17 · Formación académica',
+        title: 'Modelización de salarios y participación laboral',
+        summary: 'Proyecto formativo de análisis econométrico sobre brecha salarial y probabilidad de participación laboral.',
+        tags: ['Formación', 'R', 'Logit/Probit', 'People Analytics'],
+        metrics: [['R', 'modelización'], ['Logit + Probit', 'modelos'], ['Escenarios', 'simulación']],
+        visualLabel: 'De datos socioeconómicos a escenarios interpretables',
+        visualClass: 'ppm-art-plum',
+        visual: '<div class="ppm-detail-art-title"><span>salarios.participación</span><span>FORMACIÓN · R</span></div><div class="ppm-sigc-grid"><div class="ppm-sigc-tile"><strong>Datos</strong>Educación y género.</div><div class="ppm-sigc-tile"><strong>Modelo</strong>Logit y Probit.</div><div class="ppm-sigc-tile"><strong>Efectos</strong>Probabilidades.</div><div class="ppm-sigc-tile"><strong>Escenarios</strong>Conciliación.</div></div>',
+        challengeTitle: 'Separar correlación, probabilidad y efecto',
+        challenge: 'El proyecto planteaba estudiar la brecha salarial y estimar la probabilidad de trabajar a partir de variables individuales y familiares.',
+        solutionTitle: 'Aplicar el modelo adecuado a cada pregunta',
+        solution: 'Se combinaron regresiones salariales con modelos Logit y Probit, efectos marginales y pruebas de ajuste para interpretar los resultados.',
+        role: ['Preparación y exploración de datos socioeconómicos.', 'Estimación de ecuaciones salariales.', 'Implementación de modelos Logit y Probit.', 'Cálculo e interpretación de efectos marginales.', 'Evaluación del ajuste y la significatividad.'],
+        impact: ['Cuantificación de diferencias salariales controladas.', 'Simulación de escenarios de participación laboral.', 'Experiencia formativa diferenciada de la trayectoria laboral.'],
+        quote: 'Un modelo es útil cuando convierte una relación estadística en una pregunta que puede discutirse.'
+      }
+    };
+
+    const knowledgeBase = [
+      {
+        title: 'Skill conversacional de perfiles docentes',
+        organization: 'TECH Universidad',
+        sector: 'Educación superior',
+        keywords: ['manual', 'repetitivo', 'excel', 'criterio', 'criterios', 'reglas', 'docente', 'profesor', 'perfil', 'informe', 'autoservicio', 'skill', 'chat', 'decision', 'automatizar', 'automatizacion', 'optimizar', 'eficiencia', 'proceso'],
+        diagnosis: 'El proceso combina tareas repetibles con decisiones expertas y excepciones que no conviene ocultar.',
+        solution: 'Convertir el conocimiento operativo en una skill conversacional: una entrada simple, reglas deterministas para los cálculos, IA para el componente cualitativo y revisión humana para las excepciones.',
+        approach: 'Empezaría por documentar decisiones y variables, construiría un motor modular y desplegaría primero el tramo más estandarizable antes de ampliar cobertura.',
+        evidence: 'Pablo transformó el cálculo de claustro y perfiles docentes en un sistema que parte únicamente del título y entrega Informes Finales en Excel y Word.',
+        result: 'Más de 30 titulaciones procesadas en menos de seis meses y uso accesible para personal autorizado no técnico.',
+        project: 'perfiles'
+      },
+      {
+        title: 'PDF Guardian',
+        organization: 'TECH Universidad',
+        sector: 'Educación internacional',
+        keywords: ['documento', 'documentos', 'pdf', 'web', 'backoffice', 'ausente', 'ausentes', 'error', 'errores', 'pais', 'paises', 'contenido', 'plantilla', 'homologacion', 'admision', 'acceso', 'requisito'],
+        diagnosis: 'El problema no es solo generar documentos, sino mantener inventario, coherencia, diseño y publicación en múltiples combinaciones.',
+        solution: 'Crear un sistema documental end-to-end que genere por plantillas y variables, realice una primera lectura de ausentes e incorrectos, corrija y publique conjuntamente nuevos documentos y reemplazos.',
+        approach: 'Ordenaría el trabajo por bloques, desde lo más estandarizable, reforzando un diccionario de variables, reglas y excepciones con control visual y determinista.',
+        evidence: 'Pablo construyó PDF Guardian para cuatro bloques, tres universidades emisoras, cuatro tipos de estudio y 25 países.',
+        result: '1.200 documentos gestionados y corrección documental del 100% en web y backoffice.',
+        project: 'guardian'
+      },
+      {
+        title: 'Dashboard de seguimiento de titulaciones',
+        organization: 'TECH Universidad',
+        sector: 'Educación superior',
+        keywords: ['dashboard', 'reporting', 'informe', 'direccion', 'rector', 'fecha', 'fechas', 'columnas', 'progreso', 'power bi', 'sharepoint', 'visual', 'entender', 'estado'],
+        diagnosis: 'La información existe, pero su estructura obliga a desplazarse, interpretar demasiadas columnas y reconstruir el estado mentalmente.',
+        solution: 'Rediseñar la arquitectura de información para mostrar únicamente la fase vigente, su fecha y el progreso, conservando el histórico en la fuente.',
+        approach: 'Identificaría la pregunta de dirección, prototiparía una vista de lectura inmediata y automatizaría su actualización desde una fuente compartida.',
+        evidence: 'Pablo sustituyó la lectura de 16 columnas de fechas por un dashboard Power BI conectado a SharePoint.',
+        result: 'Más de 30 titulaciones consultables por toda la universidad con actualización cada mañana.',
+        project: 'dashboard'
+      },
+      {
+        title: 'Sistema de indicadores SIGC',
+        organization: 'TECH Universidad',
+        sector: 'Calidad universitaria',
+        keywords: ['indicador', 'indicadores', 'kpi', 'calidad', 'encuesta', 'encuestas', 'satisfaccion', 'campus', 'practicas', 'reuniones', 'seguimiento', 'medir', 'medicion'],
+        diagnosis: 'La organización necesita una visión común de procesos muy distintos, con responsables y periodicidades que no son iguales.',
+        solution: 'Construir un sistema gobernado de indicadores académicos, técnicos, operativos y de satisfacción, con fuente, responsable, frecuencia y criterio de revisión definidos.',
+        approach: 'Agruparía indicadores por decisión, asignaría propietarios y calendarios, y diseñaría una revisión que convierta cada desviación en una acción de mejora.',
+        evidence: 'Pablo estructuró un SIGC que incluye resultados académicos, funcionamiento del campus, prácticas, reuniones y encuestas.',
+        result: 'Más de 50 indicadores transversales con periodicidad adaptada a su naturaleza.',
+        project: 'sigc'
+      },
+      {
+        title: 'Reporting diario para Rectorado',
+        organization: 'TECH Universidad',
+        sector: 'Dirección universitaria',
+        keywords: ['rectorado', 'rector', 'ejecutivo', 'diario', 'alerta', 'alertas', 'monitorizacion', 'direccion', 'decision', 'fabric', 'cuadro de mando'],
+        diagnosis: 'Dirección necesita información recurrente y fiable sin depender de recopilaciones manuales cada vez que surge una pregunta.',
+        solution: 'Centralizar datos, automatizar la actualización y añadir controles y alertas para que el reporting sea un sistema operativo, no una presentación puntual.',
+        approach: 'Priorizaría decisiones críticas, definiría una fuente estable, automatizaría la preparación y establecería controles de actualización y excepción.',
+        evidence: 'Pablo implantó reporting para Rectorado con cuadros de mando, automatizaciones, monitorización y mecanismos de alerta.',
+        result: 'Información directiva actualizada de forma recurrente y preparada para la toma de decisiones.',
+        project: 'dashboard'
+      },
+      {
+        title: 'Migración operativa a Microsoft Dynamics',
+        organization: 'Universidad Internacional de Valencia',
+        sector: 'Educación superior',
+        keywords: ['erp', 'migracion', 'migrar', 'dynamics', 'esiste', 'didoseg', 'maestro', 'maestros', 'historico', 'historicos', 'base de datos', 'gobierno', 'calidad del dato', 'siiu', 'sistema nuevo', 'implantacion'],
+        diagnosis: 'Una migración de ERP falla cuando se trata como un traslado técnico y no como una transición operativa con propietarios, controles y continuidad.',
+        solution: 'Coordinar la migración por dominios, validar maestros e históricos y proteger la continuidad de indicadores y obligaciones de información.',
+        approach: 'Definiría responsables, reglas de calidad y lotes de carga; validaría primero un dominio crítico y documentaría incidencias antes de escalar.',
+        evidence: 'Pablo coordinó la migración operativa de su departamento a Microsoft Dynamics y mantuvo la gestión de indicadores académicos y BBDD oficiales.',
+        result: 'Transición operativa completada con continuidad del reporting y de los procesos del área.',
+        project: 'didoseg'
+      },
+      {
+        title: 'Indicadores, encuestas y rankings universitarios',
+        organization: 'Universidad Internacional de Valencia',
+        sector: 'Calidad universitaria',
+        keywords: ['ranking', 'rankings', 'universidad', 'academico', 'academicos', 'encuestas', 'siiu', 'evidencias', 'control interno', 'autoinforme'],
+        diagnosis: 'Las evidencias y métricas académicas pierden valor cuando se preparan de forma aislada para cada informe o evaluación.',
+        solution: 'Organizar fuentes y controles reutilizables para alimentar indicadores, encuestas, rankings y procesos de calidad desde una base coherente.',
+        approach: 'Mapearía reutilización entre entregables, automatizaría controles repetitivos y reservaría la revisión experta para incoherencias y narrativa.',
+        evidence: 'Pablo gestionó indicadores, encuestas, SIIU, rankings Power BI y controles internos de informes en VIU.',
+        result: 'Procesos de calidad y reporting sostenidos con automatizaciones en Python y fuentes estructuradas.',
+        project: 'sigc'
+      },
+      {
+        title: 'Automatización de datos de marketplaces',
+        organization: 'NATURALEX',
+        sector: 'E-commerce',
+        keywords: ['marketplace', 'marketplaces', 'amazon', 'cdiscount', 'mirakl', 'ventas', 'comercial', 'catalogo', 'descarga', 'subida', 'sql', 'vba', 'power query', 'tienda'],
+        diagnosis: 'Los equipos comerciales pierden tiempo cuando descargar, transformar y subir datos de varios marketplaces depende de pasos manuales.',
+        solution: 'Construir un flujo de extracción, transformación, control y carga que unifique plataformas y alimente reporting operativo.',
+        approach: 'Estandarizaría formatos, automatizaría transformaciones frecuentes y dejaría controles visibles antes de cada carga.',
+        evidence: 'Pablo trabajó con datos de Amazon, Cdiscount y Mirakl mediante SQL, VBA, Power Query y Power Automate Desktop.',
+        result: 'Reducción de tareas manuales y creación de dashboards Power BI para el seguimiento comercial.',
+        project: null
+      },
+      {
+        title: 'Indicadores sanitarios y análisis territorial',
+        organization: 'Conselleria de Hacienda',
+        sector: 'Administración pública y salud',
+        keywords: ['sanitario', 'sanitarios', 'salud', 'territorio', 'territorial', 'mapa', 'geolocalizacion', 'stata', 'administracion publica', 'conselleria'],
+        diagnosis: 'Los datos públicos necesitan contexto territorial y consistencia estadística para convertirse en decisiones comparables.',
+        solution: 'Integrar fuentes, validar indicadores y combinar análisis estadístico con visualización geográfica para detectar patrones territoriales.',
+        approach: 'Definiría unidades comparables, controles de calidad y una capa visual que permita explorar diferencias sin perder rigor.',
+        evidence: 'Pablo gestionó indicadores sanitarios con Excel, Access y Stata, incorporando geolocalización en Power BI.',
+        result: 'Información sanitaria estructurada y visualizable para apoyar el análisis de la Administración.',
+        project: null
+      },
+      {
+        title: 'Ratios de vivienda y tendencias poblacionales',
+        organization: 'Conselleria de Vivienda',
+        sector: 'Administración pública',
+        keywords: ['vivienda', 'poblacion', 'poblacional', 'ine', 'ratio', 'ratios', 'tendencia', 'tendencias', 'demografia', 'municipio'],
+        diagnosis: 'Los datos de vivienda y población necesitan medidas comparables y una narrativa temporal para revelar tendencias útiles.',
+        solution: 'Construir ratios sobre fuentes oficiales, analizar evolución y traducir los resultados en informes orientados a decisión.',
+        approach: 'Aseguraría definiciones homogéneas, series temporales comparables y visualizaciones centradas en cambios relevantes.',
+        evidence: 'Pablo calculó ratios con datos del INE y elaboró informes de tendencias para la Conselleria de Vivienda.',
+        result: 'Análisis entregado para interpretar evolución poblacional y necesidades relacionadas con vivienda.',
+        project: null
+      },
+      {
+        title: 'Aprovisionamiento, costes y logística hospitalaria',
+        organization: 'Hospital Doctor Peset',
+        sector: 'Sanidad',
+        keywords: ['hospital', 'logistica', 'aprovisionamiento', 'pedido', 'pedidos', 'factura', 'facturacion', 'coste', 'costes', 'lote', 'lotes', 'compra', 'compras', 'stock'],
+        diagnosis: 'La operación hospitalaria necesita trazabilidad entre demanda, pedidos, costes, facturación y lotes para evitar fricción y pérdida de control.',
+        solution: 'Estructurar el flujo de aprovisionamiento con datos comparables, puntos de control y reporting de costes y cumplimiento.',
+        approach: 'Mapearía el ciclo completo, identificaría incidencias recurrentes y priorizaría automatizaciones en conciliación y seguimiento.',
+        evidence: 'Pablo trabajó sobre aprovisionamiento, costes, pedidos, facturación y lotes en el Hospital Doctor Peset.',
+        result: 'Experiencia directa en procesos operativos y económicos de un entorno sanitario.',
+        project: null
+      },
+      {
+        title: 'Reporting de calidad con SAP',
+        organization: 'TÜV Rheinland',
+        sector: 'Calidad industrial',
+        keywords: ['sap', 'industria', 'industrial', 'tuv', 'calidad', 'certificacion', 'access', 'r3', 'informe de calidad'],
+        diagnosis: 'Los procesos de calidad necesitan datos trazables y consistentes entre el sistema transaccional y los informes de control.',
+        solution: 'Ordenar la extracción y el tratamiento de información para producir reporting de calidad fiable desde SAP y bases auxiliares.',
+        approach: 'Definiría controles de integridad, responsabilidades de actualización y salidas reutilizables para auditoría y seguimiento.',
+        evidence: 'Pablo trabajó con SAP R/3, Access e informes de calidad en TÜV Rheinland.',
+        result: 'Base temprana de experiencia en sistemas empresariales, calidad y reporting.',
+        project: null
+      }
+    ];
+
+    const home = root.querySelector('.ppm-home');
+    const detail = root.querySelector('.ppm-detail');
+    const navHomeAnchors = root.querySelectorAll('.ppm-home-anchor');
+    let detailReturnId = 'ppm-projects';
+
+    const renderList = (items) => items.map(item => `<li>${item}</li>`).join('');
+    const renderProject = (key) => {
+      const project = projects[key];
+      if (!project) return;
+      root.querySelector('.ppm-detail-label').textContent = project.label;
+      root.querySelector('.ppm-detail-title').textContent = project.title;
+      root.querySelector('.ppm-detail-summary').textContent = project.summary;
+      root.querySelector('.ppm-tags').innerHTML = project.tags.map(tag => `<span class="ppm-tag">${tag}</span>`).join('');
+      root.querySelector('.ppm-detail-metrics').innerHTML = project.metrics.map(metric => `<div class="ppm-detail-metric"><span class="ppm-metric-value">${metric[0]}</span><span>${metric[1]}</span></div>`).join('');
+      const visual = root.querySelector('.ppm-detail-visual');
+      visual.className = `ppm-detail-visual ${project.visualClass}`;
+      visual.setAttribute('aria-label', project.visualLabel);
+      visual.innerHTML = project.visual;
+      root.querySelector('.ppm-challenge-title').textContent = project.challengeTitle;
+      root.querySelector('.ppm-challenge').textContent = project.challenge;
+      root.querySelector('.ppm-solution-title').textContent = project.solutionTitle;
+      root.querySelector('.ppm-solution').textContent = project.solution;
+      root.querySelector('.ppm-role').innerHTML = renderList(project.role);
+      root.querySelector('.ppm-impact').innerHTML = renderList(project.impact);
+      root.querySelector('.ppm-quote').textContent = project.quote;
+      home.hidden = true;
+      detail.hidden = false;
+      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.lucide) window.lucide.createIcons({ attrs: { width: 16, height: 16 } });
+    };
+
+    const showHome = () => {
+      detail.hidden = true;
+      home.hidden = false;
+      const returnSection = root.querySelector(`#${detailReturnId}`) || root.querySelector('#ppm-projects');
+      returnSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const chatThread = root.querySelector('.ppm-chat-thread');
+    const chatForm = root.querySelector('.ppm-chat-form');
+    const chatInput = root.querySelector('.ppm-chat-input');
+    const chatSubmit = root.querySelector('.ppm-chat-send');
+    let chatBusy = false;
+
+    const normalizeText = (value) => value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9ñ\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    const findBestCase = (query) => {
+      const normalizedQuery = normalizeText(query);
+      const ranked = knowledgeBase.map((item, index) => {
+        const score = item.keywords.reduce((total, keyword) => {
+          const normalizedKeyword = normalizeText(keyword);
+          if (!normalizedKeyword || !normalizedQuery.includes(normalizedKeyword)) return total;
+          return total + (normalizedKeyword.includes(' ') ? 4 : normalizedKeyword.length > 6 ? 3 : 2);
+        }, 0);
+        return { item, score, index };
+      }).sort((a, b) => b.score - a.score || a.index - b.index);
+      return ranked[0].score > 0 ? ranked[0].item : knowledgeBase[0];
+    };
+
+    const appendUserMessage = (message) => {
+      const bubble = document.createElement('div');
+      bubble.className = 'ppm-chat-message ppm-user';
+      const author = document.createElement('span');
+      author.className = 'ppm-message-author';
+      author.textContent = 'Tu reto';
+      const body = document.createElement('div');
+      body.textContent = message;
+      bubble.append(author, body);
+      chatThread.appendChild(bubble);
+    };
+
+    const appendTyping = () => {
+      const bubble = document.createElement('div');
+      bubble.className = 'ppm-chat-message ppm-bot ppm-chat-waiting';
+      bubble.setAttribute('aria-label', 'Analizando la experiencia profesional');
+      bubble.innerHTML = '<span class="ppm-message-author">Consultando experiencia</span><span class="ppm-chat-typing" aria-hidden="true"><span></span><span></span><span></span></span>';
+      chatThread.appendChild(bubble);
+      return bubble;
+    };
+
+    const appendBotAnswer = (item) => {
+      const bubble = document.createElement('div');
+      bubble.className = 'ppm-chat-message ppm-bot';
+      bubble.innerHTML = `
+        <span class="ppm-message-author">Solución basada en ${item.sector}</span>
+        <div class="ppm-answer-section"><strong>Lectura del problema</strong>${item.diagnosis}</div>
+        <div class="ppm-answer-section"><strong>Solución aplicable</strong>${item.solution}</div>
+        <div class="ppm-answer-section"><strong>Cómo empezaría</strong>${item.approach}</div>
+        <div class="ppm-proof-case">
+          <span>Proyecto cerrado · ${item.organization}</span>
+          <strong>${item.title}</strong>
+          <p>${item.evidence} ${item.result}</p>
+        </div>`;
+      if (item.project && projects[item.project]) {
+        const button = document.createElement('button');
+        button.className = 'ppm-chat-case-button';
+        button.type = 'button';
+        button.textContent = 'Abrir el caso completo →';
+        button.addEventListener('click', () => {
+          detailReturnId = 'ppm-lab';
+          renderProject(item.project);
+        });
+        bubble.appendChild(button);
+      }
+      chatThread.appendChild(bubble);
+    };
+
+    const askChat = (message) => {
+      const cleaned = message.trim();
+      if (!cleaned || chatBusy) return;
+      chatBusy = true;
+      chatInput.disabled = true;
+      chatSubmit.disabled = true;
+      appendUserMessage(cleaned);
+      const typing = appendTyping();
+      chatThread.scrollTop = chatThread.scrollHeight;
+      const match = findBestCase(cleaned);
+      setTimeout(() => {
+        typing.remove();
+        appendBotAnswer(match);
+        chatBusy = false;
+        chatInput.disabled = false;
+        chatSubmit.disabled = false;
+        chatInput.value = '';
+        chatThread.scrollTop = chatThread.scrollHeight;
+        chatInput.focus();
+      }, 520);
+    };
+
+    root.querySelectorAll('[data-project]').forEach(button => {
+      const openProject = () => {
+        detailReturnId = 'ppm-projects';
+        renderProject(button.dataset.project);
+      };
+      button.addEventListener('click', openProject);
+      if (button.getAttribute('role') === 'button') {
+        button.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openProject();
+          }
+        });
+      }
+    });
+    root.querySelectorAll('[data-chat-prompt]').forEach(button => {
+      button.addEventListener('click', () => askChat(button.dataset.chatPrompt));
+    });
+    if (chatForm) chatForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      askChat(chatInput.value);
+    });
+    root.querySelectorAll('.ppm-back').forEach(button => button.addEventListener('click', showHome));
+    navHomeAnchors.forEach(anchor => {
+      anchor.addEventListener('click', () => {
+        if (!detail.hidden) {
+          detail.hidden = true;
+          home.hidden = false;
+        }
+      });
+    });
+  })();
+</script>
