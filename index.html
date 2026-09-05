@@ -215,6 +215,18 @@
     box-shadow: none;
   }
 
+  #pablo-portfolio-master .ppm-button-ghost:hover,
+  #pablo-portfolio-master .ppm-button-ghost:focus-visible,
+  #pablo-portfolio-master .ppm-button-ghost:active {
+    color: light-dark(#9b6e00, #f5c84d);
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+    transform: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
   #pablo-portfolio-master .ppm-home[hidden],
   #pablo-portfolio-master .ppm-detail[hidden] { display: none; }
 
@@ -225,19 +237,6 @@
     grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr);
     min-height: 500px;
     border-bottom: 1px dashed light-dark(#847b67, #67604f);
-  }
-
-  #pablo-portfolio-master .ppm-hero::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -150px;
-    left: -100px;
-    width: 520px;
-    height: 520px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(245, 200, 77, .28), rgba(245, 200, 77, 0) 68%);
-    filter: blur(4px);
   }
 
   #pablo-portfolio-master .ppm-hero-copy {
