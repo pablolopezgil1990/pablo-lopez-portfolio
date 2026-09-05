@@ -76,23 +76,6 @@
     transform-origin: left center;
   }
 
-  #pablo-portfolio-master .ppm-cursor-glow {
-    position: fixed;
-    z-index: 90;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(245, 200, 77, .16), rgba(245, 200, 77, 0) 68%);
-    pointer-events: none;
-    opacity: 0;
-    transform: translate3d(calc(var(--ppm-pointer-x, -300px) - 50%), calc(var(--ppm-pointer-y, -300px) - 50%), 0);
-    transition: opacity .25s ease;
-  }
-
-  #pablo-portfolio-master.ppm-pointer-active .ppm-cursor-glow { opacity: 1; }
-
   #pablo-portfolio-master .ppm-mono,
   #pablo-portfolio-master .ppm-eyebrow,
   #pablo-portfolio-master .ppm-tag,
@@ -255,8 +238,6 @@
     border-radius: 50%;
     background: radial-gradient(circle, rgba(245, 200, 77, .28), rgba(245, 200, 77, 0) 68%);
     filter: blur(4px);
-    transform: translate3d(calc(var(--ppm-hero-x, 0) * 1px), calc(var(--ppm-hero-y, 0) * 1px), 0);
-    transition: transform .25s ease-out;
   }
 
   #pablo-portfolio-master .ppm-hero-copy {
@@ -349,19 +330,6 @@
     background: light-dark(rgba(255, 251, 239, .68), rgba(29, 28, 22, .75));
     perspective: 1100px;
   }
-
-  #pablo-portfolio-master .ppm-hero-method::before,
-  #pablo-portfolio-master .ppm-hero-method::after {
-    content: "";
-    position: absolute;
-    width: 88px;
-    height: 88px;
-    border: 1px dashed light-dark(rgba(43, 40, 31, .38), rgba(231, 221, 194, .32));
-    pointer-events: none;
-  }
-
-  #pablo-portfolio-master .ppm-hero-method::before { top: 30px; right: 24px; }
-  #pablo-portfolio-master .ppm-hero-method::after { bottom: 30px; left: 24px; transform: rotate(45deg); }
 
   #pablo-portfolio-master .ppm-method-board {
     position: relative;
@@ -1511,16 +1479,19 @@
   }
 
   #pablo-portfolio-master .ppm-detail-inner {
-    max-width: 1100px;
+    max-width: 1364px;
     margin: 0 auto;
   }
 
   #pablo-portfolio-master .ppm-detail-hero {
     display: grid;
-    grid-template-columns: 1fr .92fr;
-    gap: 40px;
+    grid-template-columns: minmax(0, 620px) minmax(420px, 680px);
+    gap: clamp(32px, 4vw, 64px);
     align-items: center;
+    justify-content: center;
+    max-width: 1432px;
     min-width: 0;
+    margin: 0 auto;
     overflow: hidden;
     padding: 44px 34px 54px;
     border-bottom: 1px dashed light-dark(#847b67, #67604f);
@@ -1931,7 +1902,6 @@
       --ppm-card-lift: 0px;
       box-shadow: 7px 7px 0 light-dark(#2b281f, #e7ddc2);
     }
-    #pablo-portfolio-master .ppm-cursor-glow { display: none; }
   }
 
   @media (max-width: 480px) {
@@ -1984,7 +1954,6 @@
       animation-iteration-count: 1 !important;
       transition-duration: .01ms !important;
     }
-    #pablo-portfolio-master .ppm-cursor-glow { display: none; }
     #pablo-portfolio-master .ppm-chat-typing span { animation: none; }
     #pablo-portfolio-master .ppm-chat-thread { scroll-behavior: auto; }
   }
@@ -1994,7 +1963,6 @@
 <body>
 <div id="pablo-portfolio-master">
   <div class="ppm-scroll-progress" aria-hidden="true"><span></span></div>
-  <div class="ppm-cursor-glow" aria-hidden="true"></div>
   <main class="ppm-site" aria-label="Portfolio profesional de Pablo López Gil">
     <nav class="ppm-nav" aria-label="Navegación principal">
       <div class="ppm-brand">
@@ -2800,7 +2768,6 @@
 
     if (!reducedMotion.matches) {
       root.classList.add('ppm-motion-ready');
-      const hero = root.querySelector('.ppm-hero');
       const board = root.querySelector('.ppm-method-board');
       const revealTargets = root.querySelectorAll(
         '.ppm-proof-item, .ppm-section-head, .ppm-project-card, .ppm-other-head, .ppm-other-row, .ppm-story-block, .ppm-quote, .ppm-footer'
@@ -2824,24 +2791,6 @@
         });
       }, { threshold: .12, rootMargin: '0px 0px -7% 0px' });
       revealTargets.forEach(element => revealObserver.observe(element));
-
-      root.addEventListener('pointermove', (event) => {
-        if (event.pointerType === 'touch') return;
-        root.style.setProperty('--ppm-pointer-x', `${event.clientX}px`);
-        root.style.setProperty('--ppm-pointer-y', `${event.clientY}px`);
-        root.classList.add('ppm-pointer-active');
-      }, { passive: true });
-      root.addEventListener('pointerleave', () => root.classList.remove('ppm-pointer-active'));
-
-      if (hero) {
-        hero.addEventListener('pointermove', (event) => {
-          const bounds = hero.getBoundingClientRect();
-          const x = ((event.clientX - bounds.left) / bounds.width - .5) * 20;
-          const y = ((event.clientY - bounds.top) / bounds.height - .5) * 20;
-          hero.style.setProperty('--ppm-hero-x', x.toFixed(2));
-          hero.style.setProperty('--ppm-hero-y', y.toFixed(2));
-        }, { passive: true });
-      }
 
       if (board && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         board.addEventListener('pointermove', (event) => {
