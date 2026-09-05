@@ -1,8 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4efdf">
+<title>Portfolio de Pablo López Gil</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap');
 
+  html {
+    min-width: 320px;
+    background: #f4efdf;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: #f4efdf;
+  }
+
   #pablo-portfolio-master {
-    color-scheme: light dark;
+    color-scheme: light;
     width: 100%;
     color: light-dark(#211f1a, #f2ecd9);
     font-family: "Manrope", system-ui, sans-serif;
@@ -1580,7 +1600,10 @@
   }
 
   @media (max-width: 680px) {
-    #pablo-portfolio-master .ppm-nav { padding: 15px 17px; }
+    #pablo-portfolio-master .ppm-nav { gap: 12px; padding: 13px 15px; }
+    #pablo-portfolio-master .ppm-nav-links { gap: 8px; }
+    #pablo-portfolio-master .ppm-contact-link { font-size: 10px; }
+    #pablo-portfolio-master .ppm-contact-link + .ppm-contact-link::before { margin: 0 7px; }
     #pablo-portfolio-master .ppm-nav-links .ppm-nav-link { display: none; }
     #pablo-portfolio-master .ppm-hero-copy { padding: 50px 23px; }
     #pablo-portfolio-master .ppm-hero-method { padding: 35px 22px 44px; }
@@ -1658,6 +1681,8 @@
   }
 </style>
 
+</head>
+<body>
 <div id="pablo-portfolio-master">
   <main class="ppm-site" aria-label="Portfolio profesional de Pablo López Gil">
     <nav class="ppm-nav" aria-label="Navegación principal">
@@ -2447,3 +2472,5 @@
     });
   })();
 </script>
+</body>
+</html>
