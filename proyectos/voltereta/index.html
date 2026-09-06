@@ -6,6 +6,9 @@
   <meta name="description" content="Voltereta ALMA: alertas operativas a partir de reseñas públicas recientes.">
   <title>Voltereta ALMA · Radar de experiencia</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Antes de pintar: si el usuario ya eligio tema, se aplica aqui. Sin esto,
+       la pagina parpadea en claro durante un fotograma antes de ponerse oscura. -->
+  <script>try{var m=localStorage.getItem('alma-theme');if(m)document.documentElement.dataset.theme=m;}catch(e){}</script>
 </head>
 <body>
   <div class="app-shell">
@@ -36,12 +39,13 @@
         </div>
         <div class="top-actions">
           <span class="live-pill"><i></i> Prototipo con datos reales</span>
+          <button class="icon-button" id="theme-toggle" type="button" aria-pressed="false" title="Cambiar entre claro y oscuro"><svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></svg><span class="sr-only">Cambiar el tema</span></button>
           <button class="ask-button" id="open-ask">Preguntar a ALMA <span>↗</span></button>
         </div>
       </header>
 
       <section class="view active" id="overview-view">
-        <div class="signal-strip" aria-label="Resumen del grupo"></div>
+        <div class="overview-head" aria-label="Resumen del grupo"></div>
         <article class="panel-card network-card">
           <div class="card-heading"><div><p class="eyebrow">Google · red completa</p><h3>Nota reciente y evolución semanal</h3></div><span class="confidence">Eje fijo: 3,5–5,0</span></div>
             <div class="table-wrap network-wrap"><table><thead><tr><th>Local</th><th>Nota de la ficha</th><th>Nota últimas 100</th><th>Nota últimas 25</th><th>Delta</th><th>Evolución semanal</th></tr></thead><tbody id="network-table"></tbody></table></div>
