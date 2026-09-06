@@ -1,0 +1,506 @@
+[
+  {
+    "id": "casa-valencia",
+    "title": "Voltereta Casa | Valencia",
+    "rating": 4.6,
+    "visible": 10898,
+    "sample": {
+      "n": 200,
+      "negative_n": 5,
+      "negative_pct": 2.5,
+      "newest": "hace un día",
+      "oldest": "Hace un mes"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 2,
+      "negative_pct": 2,
+      "newest": "hace un día",
+      "oldest": "Hace un mes"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 3,
+      "negative_pct": 3,
+      "newest": "Hace un mes",
+      "oldest": "Hace un mes"
+    },
+    "older": {
+      "n": 0,
+      "negative_n": 0,
+      "negative_pct": null,
+      "newest": "",
+      "oldest": ""
+    },
+    "examples": [
+      {
+        "rating": 1,
+        "relative_time": "hace 6 días",
+        "text": "⭐ 1 estrella\n\nUna experiencia realmente decepcionante. Nos sentamos en una mesa y ni siquiera…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s1a056RnlSQzFGVm5aWloyRkhjMUZ6WWpWMFMyYxAB!2m1!1s0x0:5f752e5dd8b8e1f9!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "Hace 3 semanas",
+        "text": "Me esperaba mucho más viendo la puntuación de Google. El menú bastante flojo, plato del día de pasta con la pasta pasada, secreto ibérico más seco que la mojama, tempura de verduras recalentada y los postres (yogur griego) para olvidar. El personal correcto. No volveré",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tabGNIWTBVR2QxY0RsVlNWTnRRakU1YVc0elNrRRAB!2m1!1s0x0:5f752e5dd8b8e1f9!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace un mes",
+        "text": "Hoy hemos tenido una experiencia muy desagradable en Voltereta Casa, en la Avenida de las Cortes Valencianas. Pedimos unas limonadas, unas botellas de agua, un bao para mi mujer y un menú (tortilla y secreto) para mí. Solo queríamos darle…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xsRU5WcDZibk5uY2pkclNFcFJOVWxTVFZoRGRXYxAB!2m1!1s0x0:5f752e5dd8b8e1f9!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "Hace un mes",
+        "text": "Más que haber comido en voltereta casa fue más parecido a haber comido en voltereta Senegal, que calor pasamos! Poned un aire más a la entrada y ganaréis clientes y consumiciones",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25nM2FGZE1VMDl4VWpGTVdGb3lZa05OVkRaamJrRRAB!2m1!1s0x0:5f752e5dd8b8e1f9!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "Hace un mes",
+        "text": "Estuvimos 1h y 15 para comer dos platos. Tardaron más de media hora solo en traernos los postres.\nLa puerta se queda todo el rato abierta y entra mucho calor.",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pSZlFUWkRjVmhNY1cxNlNXYzRORWxWWmtkNmFuYxAB!2m1!1s0x0:5f752e5dd8b8e1f9!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "bali-valencia",
+    "title": "Voltereta Bali | Valencia",
+    "rating": 4.6,
+    "visible": 23783,
+    "sample": {
+      "n": 200,
+      "negative_n": 17,
+      "negative_pct": 8.5,
+      "newest": "Hace 5 horas",
+      "oldest": "Hace 4 semanas"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 4,
+      "negative_pct": 4,
+      "newest": "Hace 5 horas",
+      "oldest": "Hace 2 semanas"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 13,
+      "negative_pct": 13,
+      "newest": "Hace 2 semanas",
+      "oldest": "Hace 4 semanas"
+    },
+    "older": {
+      "n": 0,
+      "negative_n": 0,
+      "negative_pct": null,
+      "newest": "",
+      "oldest": ""
+    },
+    "examples": [
+      {
+        "rating": 2,
+        "relative_time": "hace 2 días",
+        "text": "Nuestra visita a este restaurante fue, lamentablemente, decepcionante, a pesar de su ambiente verdaderamente hermoso y único. Al llegar, la recepcionista nos trató con rudeza. Nos indicó que nos fuéramos y que concertáramos una cita…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkTU9UZHhUVWwyYVZWRWRXRXRPRGd3Ukd0dFRIYxAB!2m1!1s0x0:4ccfb1504e51bb3a!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace 2 semanas",
+        "text": "PÉSIMO SERVICIO Y PERSONAL LENTO. ESPERAMOS UNA HORA PARA PEDIR Y OTRA HORA PARA LA COMIDA. NO VOLVERÉ JAMÁS. EL PERSONAL TAMPOCO ESTÁ CAPACITADO, ASÍ QUE ES UN DESASTRE.",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xoelNrTndRbUZwY3pZdE9XOTFZVWxuVG5JM1JWRRAB!2m1!1s0x0:4ccfb1504e51bb3a!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace 2 semanas",
+        "text": "Los camareros ,muy atentos y serviciales.\nComida escasa para lo que vale muy poca cantidad",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21WR04wVnJNRTQ1VG5ONFpqY3RNMDE2V21KRGVrRRAB!2m1!1s0x0:4ccfb1504e51bb3a!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace 2 semanas",
+        "text": "Camareros maleducados. Las bebidas alcohólicas tenían demasiado azúcar. Dijeron que nos traerían otra cosa, pero nunca lo hicieron. No volveré jamás.",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21aeVFTMTRTVWc0WjBzNU5ubFdlbUpCZVUxYVJrRRAB!2m1!1s0x0:4ccfb1504e51bb3a!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "Hace 2 semanas",
+        "text": "Fui con mi pareja\nEl lugar es embaucador. Desde el primer momento ,(sobre todo la entrada) te transporta a un mundo diferente. Es una pasada.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xsbldWQTNZazA0VlhaTmVqaGtaRmR1ZFhKMlowRRAB!2m1!1s0x0:4ccfb1504e51bb3a!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "manhattan-valencia",
+    "title": "Voltereta Manhattan - Valencia",
+    "rating": 4.6,
+    "visible": 14604,
+    "sample": {
+      "n": 200,
+      "negative_n": 16,
+      "negative_pct": 8,
+      "newest": "hace 40 minutos",
+      "oldest": "Hace un mes"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 7,
+      "negative_pct": 7,
+      "newest": "hace 40 minutos",
+      "oldest": "Hace 2 semanas"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 9,
+      "negative_pct": 9,
+      "newest": "Hace 2 semanas",
+      "oldest": "Hace un mes"
+    },
+    "older": {
+      "n": 0,
+      "negative_n": 0,
+      "negative_pct": null,
+      "newest": "",
+      "oldest": ""
+    },
+    "examples": [
+      {
+        "rating": 1,
+        "relative_time": "hace 40 minutos",
+        "text": "Ayer fui a comer a este restaurante sobre las 15:00 con un amigo y, sinceramente, nunca me había sentido tan mal tratado en un restaurante.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KTmQwUnJhMjR0TTNwbVEwWlBXSGhqYkRSQ1dFRRAB!2m1!1s0x0:5f1726323e056e34!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "hace 2 días",
+        "text": "⭐️⭐️⭐️\n\nEl ambiente es realmente hermoso y elegante, y la comida también nos gustó.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CQ2RGTnlMVjlvYjNwRWMzTjNiVlZWUTJvNVNsRRAB!2m1!1s0x0:5f1726323e056e34!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 5 días",
+        "text": "Mi familia y yo no tenemos la culpa de que ni vuestra web ni vuestro contestador automático de la ia no nos deje modificar la reserva. Encima de que nos plantamos en el local con intención de cenar y explicarles lo ocurrido. Horrible gestión",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25WQlJtSTFRM2xQVEc5RGNqSmxaVXhyYmxGdWIwRRAB!2m1!1s0x0:5f1726323e056e34!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 5 días",
+        "text": "La comida estaba deliciosa y las bebidas también.\n\nEl servicio fue un desastre. Tuvimos que pedir los aperitivos dos veces porque…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxMFZIaHdUVVZzZGpkVWNtcDBRMmRFZWt0NWFYYxAB!2m1!1s0x0:5f1726323e056e34!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace una semana",
+        "text": "Al llegar, esperas en una sala de espera en un banco donde puedes comprar artículos promocionales. Luego te llaman para que pases por una sala con iluminación artificial (cuando funciona), y todo se ve exagerado. Especialmente si estás en…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2paT00xZFJlbEJJWlU5UmRHUkNZMVpLVm1ab1RIYxAB!2m1!1s0x0:5f1726323e056e34!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "kioto-valencia",
+    "title": "Voltereta Kioto | Valencia",
+    "rating": 4.5,
+    "visible": 14977,
+    "sample": {
+      "n": 60,
+      "negative_n": 1,
+      "negative_pct": 1.7,
+      "newest": "Hace 15 horas",
+      "oldest": "Hace 2 semanas"
+    },
+    "latest": {
+      "n": 60,
+      "negative_n": 1,
+      "negative_pct": 1.7,
+      "newest": "Hace 15 horas",
+      "oldest": "Hace 2 semanas"
+    },
+    "previous": {
+      "n": 0,
+      "negative_n": 0,
+      "negative_pct": null,
+      "newest": "",
+      "oldest": ""
+    },
+    "older": {
+      "n": 0,
+      "negative_n": 0,
+      "negative_pct": null,
+      "newest": "",
+      "oldest": ""
+    },
+    "examples": [
+      {
+        "rating": 2,
+        "relative_time": "Hace una semana",
+        "text": "Pedí felicitar al cumpleañero, pero ignoraron mi petición. No recomendaría celebrar cumpleaños aquí.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21WamQxSnlNMVU1TFZSTFlrNW9MVTFWTkc4d1pXYxAB!2m1!1s0x0:1bbbb842f6953695!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "nueva-zelanda-zaragoza",
+    "title": "Voltereta Nueva Zelanda",
+    "rating": 4.6,
+    "visible": 17293,
+    "sample": {
+      "n": 300,
+      "negative_n": 17,
+      "negative_pct": 5.7,
+      "newest": "Fecha de edición: Hace 11 horas",
+      "oldest": "Hace un mes"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 7,
+      "negative_pct": 7,
+      "newest": "Fecha de edición: Hace 11 horas",
+      "oldest": "Hace una semana"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 5,
+      "negative_pct": 5,
+      "newest": "Hace una semana",
+      "oldest": "Hace 3 semanas"
+    },
+    "older": {
+      "n": 100,
+      "negative_n": 5,
+      "negative_pct": 5,
+      "newest": "Hace 3 semanas",
+      "oldest": "Hace un mes"
+    },
+    "examples": [
+      {
+        "rating": 2,
+        "relative_time": "hace 2 días",
+        "text": "Mala experiencia,\nMucha publicidad de streamer para después ver una cocina muy mediocre y un personal muy poco profesional.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT205b2FuQXRZVk5OTjJoWU1VVm9kWGRUVEhaWGNsRRAB!2m1!1s0x0:0xf38c00a50cf42029!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 6 días",
+        "text": "Fuimos a comer 4 amigos por recomendación, nuestra experiencia dejó mucho que desear. Los primeros platos estaban ricos pero asta que llegaron los segundos que tardaron una media hora. El arroz del risotto estaba duro. En el plato de pollo…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25GVk0xTnhWamxJVGpReU0xWkpPRzVvTkdkNGJYYxAB!2m1!1s0x0:0xf38c00a50cf42029!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "hace 6 días",
+        "text": "Fuimos a cenar con un vale regalo de 100€ la cena costó 83€ y al traernos la cuenta y ver que sobraba  preguntamos que pasaba con la diferencia y nos respondieron que se perdía.Como la cuenta estaba cerrada no nos dieron opción de pedir nadar más.Para vivir la experiencia fenomenal y nada más",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOd2EzSTVSMUZxZDB4SFNUWXhMVnBEUW1sUFFrRRAB!2m1!1s0x0:0xf38c00a50cf42029!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 6 días",
+        "text": "Hemos tenido una experiencia muy desagrasable. La comida empezó bien, entrantes bien pero de los entrantes a los platos principales pasaron 30 minutos para recibir un risoto con el arroz duro y un pollo a la mantequilla con un pelo…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25KYU5FNVpTa2hGZFZOck5YTm1lbWgwV1MxU0xVRRAB!2m1!1s0x0:0xf38c00a50cf42029!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 6 días",
+        "text": "Mi experiencia fue de película … tenía una mesa reservada a las 13:30 y te reservaban la mesa hasta las 13:45 … por un incendio y todo cortado llegué a las 13:41 osea en mi horario .…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s1bk0zTkhibWRITXpOek1sbFRZV2xyT0ZKc2JFRRAB!2m1!1s0x0:0xf38c00a50cf42029!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "paris-sevilla",
+    "title": "Voltereta París - Sevilla",
+    "rating": 4.8,
+    "visible": 24838,
+    "sample": {
+      "n": 200,
+      "negative_n": 9,
+      "negative_pct": 4.5,
+      "newest": "hace 47 minutos",
+      "oldest": "Hace un mes"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 2,
+      "negative_pct": 2,
+      "newest": "hace 47 minutos",
+      "oldest": "Hace 2 semanas"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 7,
+      "negative_pct": 7,
+      "newest": "Hace 2 semanas",
+      "oldest": "Hace un mes"
+    },
+    "older": {
+      "n": 0,
+      "negative_n": 0,
+      "negative_pct": null,
+      "newest": "",
+      "oldest": ""
+    },
+    "examples": [
+      {
+        "rating": 1,
+        "relative_time": "hace un día",
+        "text": "Por favor, limpiad la acera junto a los contenedores de basura en los que echáis vuestros desperdicios. Da asco pasar por allí y muy mala impresión para el propio restaurante. El suelo está negro y huele fatal. La limpieza de un restaurante…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xVMVdUTjRXUzFsT1VoQk1qRklXR3Q0UmxOV1MwRRAB!2m1!1s0x0:a0aeb2b4cc1c757f!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "hace 4 días",
+        "text": "Fuí con mi pareja hace una semana y la verdad quedamos un poco decepcionados.\nComo tal la comida estaba muy buena aunque tardó más de lo habitual para la cantidad de clientes que había ese día.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21OaFdVZ3RUbTVPVjFoRlJHWXpPV1l5UWtwRE1sRRAB!2m1!1s0x0:a0aeb2b4cc1c757f!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace 2 semanas",
+        "text": "¡¡¡Horrible!!!\n\nEl plato principal ya estaba servido cuando aún estábamos comiendo el entrante.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21remREVmlkWEoyYlhoZlQwOTRlbnBOYjFSVE1uYxAB!2m1!1s0x0:a0aeb2b4cc1c757f!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace 3 semanas",
+        "text": "Decepcionante. Local bonito y agradable pero comida de muy mala calidad. No lo recomiendo.",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tsR1ZYZFhSbWgwZG5aWGVqRnhTV2RSYW1nM1ZuYxAB!2m1!1s0x0:a0aeb2b4cc1c757f!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace 3 semanas",
+        "text": "Nos habíamos propuesto pasar una velada agradable con nuestros hijos en un restaurante encantador durante nuestras vacaciones. Sin embargo, la bienvenida y el servicio, lamentablemente arrogante, distaron mucho de la hospitalidad parisina…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xOdlMzVnJhbTEwYmpKVk1VRjVNMjFDWmsxaU0zYxAB!2m1!1s0x0:a0aeb2b4cc1c757f!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "tanzania-alicante",
+    "title": "Voltereta Tanzania - Alicante",
+    "rating": 4.7,
+    "visible": 19711,
+    "sample": {
+      "n": 300,
+      "negative_n": 16,
+      "negative_pct": 5.3,
+      "newest": "Hace una hora",
+      "oldest": "Hace una semana"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 4,
+      "negative_pct": 4,
+      "newest": "Hace una hora",
+      "oldest": "hace 3 días"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 5,
+      "negative_pct": 5,
+      "newest": "hace 3 días",
+      "oldest": "Hace una semana"
+    },
+    "older": {
+      "n": 100,
+      "negative_n": 7,
+      "negative_pct": 7,
+      "newest": "Hace una semana",
+      "oldest": "Hace una semana"
+    },
+    "examples": [
+      {
+        "rating": 1,
+        "relative_time": "hace un día",
+        "text": "llevo varios días intentando contactar con ellos para hacer una evento con 25 personas, no hay manera, siempre respuesta automática de hágalo por la web, después de intentarlo y decirles que es imposible, me dicen que es que el calendario…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xCdGRXdHVkR2RYUVhaWmRsOHpjRU50WjFNM2VrRRAB!2m1!1s0x0:0x5b782b3249dc511c!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 2 días",
+        "text": "Servicio muy poco profesional, comida correcta sin más pero tardan muchísimo en servir, calidad precio nada recomendable",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKRGFWOWxjbXR0VUZKbVR6TjJiakJrYm1OS1psRRAB!2m1!1s0x0:0x5b782b3249dc511c!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 2 días",
+        "text": "Fatal servicio, descontrol, error en los platos, muy lentos, comida mala recalentado. No lo recomiendo en absoluto",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pablEwaERTelJYVWtGZlJuVjBXRkpTV0ZSSFNrRRAB!2m1!1s0x0:0x5b782b3249dc511c!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 3 días",
+        "text": "Una completa decepción; lamentablemente, no se correspondía con lo que prometían las fotos.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CMVozTkxTakk0VW5jMFFqZHhaVFpoTVRaQ05XYxAB!2m1!1s0x0:0x5b782b3249dc511c!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "hace 3 días",
+        "text": "Una experiencia terrible. Reservamos con más de una semana de antelación y recibimos un correo electrónico de confirmación. El día de la cena, recibimos un correo electrónico informándonos de que la reserva se había cancelado debido a un…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2psWGNYaDJVV1o0TVhGNU5GaExhVGN4VUVsNVptYxAB!2m1!1s0x0:0x5b782b3249dc511c!3m1!1s2@1"
+      }
+    ]
+  },
+  {
+    "id": "toscana-cordoba",
+    "title": "Voltereta Toscana - Córdoba",
+    "rating": 4.8,
+    "visible": 7289,
+    "sample": {
+      "n": 300,
+      "negative_n": 23,
+      "negative_pct": 7.7,
+      "newest": "Hace 21 horas",
+      "oldest": "Hace un mes"
+    },
+    "latest": {
+      "n": 100,
+      "negative_n": 15,
+      "negative_pct": 15,
+      "newest": "Hace 21 horas",
+      "oldest": "Hace 3 semanas"
+    },
+    "previous": {
+      "n": 100,
+      "negative_n": 7,
+      "negative_pct": 7,
+      "newest": "Hace 4 semanas",
+      "oldest": "Hace un mes"
+    },
+    "older": {
+      "n": 100,
+      "negative_n": 1,
+      "negative_pct": 1,
+      "newest": "Hace un mes",
+      "oldest": "Hace un mes"
+    },
+    "examples": [
+      {
+        "rating": 1,
+        "relative_time": "hace 5 días",
+        "text": "Sitio bonito. Masa de pizza dura más parecida a masa del supermercado.\nAdemás, ojo con pedir tinto con casera. Te cobran 3,9€ por una copa de agua con dos hielos que cubren casi toda la copa. Una vez que me quejo que esa copa no es doble, no hacen nada y me la cobran.",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t4MVpGcG5TRlZWVWt0TVNGTlpVRlJpVjBFeVpHYxAB!2m1!1s0x0:0xbf1d880150511ed1!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "Hace una semana",
+        "text": "Después de una exquisita ensalada de tomate y burrata, una media hora de espera para la pizza, sin disculparse por la demora, llega la pizza de jamón serrano con el jamón cocinado y totalmente salado, y lo mismo la rúcula, toda pocha por…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25wa1JsVlFRbUphZDFoNGEyRTJSVXRPYW5Sak5rRRAB!2m1!1s0x0:0xbf1d880150511ed1!3m1!1s2@1"
+      },
+      {
+        "rating": 2,
+        "relative_time": "Hace una semana",
+        "text": "La pizza no cumplió con las expectativas.\n\nEl menú decía mozzarella de búfala, pero no... solo mozzarella común.…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tzeldqbHBOUzFxUjBGV1lsSTNMVlpTVkdWdWJFRRAB!2m1!1s0x0:0xbf1d880150511ed1!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Hace una semana",
+        "text": "Pedí un salón y me ponen en un patio con montera en pleno agosto en Córdoba dándonos el sol en la cara, dos personas que no toleramos el sol directo. Nos quejamos y pudieron cambiarnos de sitio. 20 minutos de espera para pedir las…",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25GWk1WOU1Ua0ZQWTNaWmN6aERaVmxrYm1WMmVuYxAB!2m1!1s0x0:0xbf1d880150511ed1!3m1!1s2@1"
+      },
+      {
+        "rating": 1,
+        "relative_time": "Fecha de edición: Hace 2 semanas",
+        "text": "Había una mata de pelo en el formaggo di trevi",
+        "review_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25GSVgyMHpTR2xFWDNaS1gyY3lUak15ZW5KeFpWRRAB!2m1!1s0x0:0xbf1d880150511ed1!3m1!1s2@1"
+      }
+    ]
+  }
+]

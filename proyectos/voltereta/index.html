@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Voltereta ALMA: alertas operativas a partir de reseñas públicas recientes.">
+  <title>Voltereta ALMA · Radar de experiencia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="Voltereta ALMA, inicio">
+        <span class="brand-mark">A</span>
+        <span><strong>ALMA</strong><small>Radar de experiencia</small></span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav-item active" data-view="overview"><span>◱</span>Vista general</button>
+        <button class="nav-item" data-view="panel"><span>⌁</span>Local a local</button>
+        <button class="nav-item" data-view="day"><span>↗</span>Día a día</button>
+        <button class="nav-item" data-view="method"><span>i</span>Método y datos</button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="source-status"><i></i><span>Lectura pública cerrada<br><strong>5 sep 2026</strong></span></div>
+        <button class="quiet-button" data-open-view="method">Ver trazabilidad</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Dirección de Operaciones</p>
+          <h1 id="view-title">Vista general</h1>
+        </div>
+        <div class="top-actions">
+          <span class="live-pill"><i></i> Prototipo con datos reales</span>
+          <button class="ask-button" id="open-ask">Preguntar a ALMA <span>↗</span></button>
+        </div>
+      </header>
+
+      <section class="view active" id="overview-view">
+        <div class="signal-strip" aria-label="Resumen del grupo"></div>
+        <article class="panel-card network-card">
+          <div class="card-heading"><div><p class="eyebrow">Google · red completa</p><h3>Nota reciente y evolución semanal</h3></div><span class="confidence">Eje fijo: 3,5–5,0</span></div>
+            <div class="table-wrap network-wrap"><table><thead><tr><th>Local</th><th>Nota de la ficha</th><th>Nota últimas 100</th><th>Nota últimas 25</th><th>Delta</th><th>Evolución semanal</th></tr></thead><tbody id="network-table"></tbody></table></div>
+            <p class="chart-note">Cada punto es la nota media del cubo y exige al menos 10 reseñas. Los huecos no se interpolan. La línea horizontal, cuando existe, indica «antes del último mes». Las últimas 25 cubren entre 19 horas y 2 semanas según el local y, por su tamaño, sirven para ver dirección, no para decidir.</p>
+        </article>
+      </section>
+
+      <section class="view" id="panel-view">
+        <div class="page-intro compact"><p>Sin seleccionar nada se ve el grupo completo. Pulsa un local para ver solo el suyo.</p></div>
+        <div class="day-toolbar"><button class="text-button" data-show-group>Grupo completo</button><div id="venue-picker" class="day-venue-picker"></div></div>
+        <article class="panel-card venue-detail" id="venue-detail" aria-live="polite"></article>
+      </section>
+
+      <section class="view" id="day-view">
+        <div class="page-intro compact"><p>Las semanas quedan a la izquierda y los días a la derecha. Pulsa un tramo para revisar las negativas.</p><p>Las fechas son estimadas desde la captura porque Google solo da fechas relativas; tienen un margen de un día.</p></div>
+        <div class="day-toolbar"><button class="text-button" data-day-group>Grupo completo</button><div id="day-venue-picker" class="day-venue-picker"></div><button class="text-button" data-day-clear>Ver todos los tramos</button></div>
+        <article class="panel-card timeline-card"><div class="timeline-legend"><span>Semanas</span><span>Días</span></div><div id="timeline" class="timeline" role="list"></div><p class="chart-note">Las semanas no incluyen los últimos seis días. El volumen aparece junto a cada tramo. El cubo «hace un mes» queda fuera de la serie.</p></article>
+        <article class="panel-card day-detail" id="day-detail" aria-live="polite"></article>
+        <p class="chart-note">La profundidad de la muestra varía según el local: Tanzania cubre una semana y Casa cubre un mes. Por eso los tramos antiguos pueden no tener datos según el local.</p>
+      </section>
+
+      <section class="view" id="method-view">
+        <div class="page-intro"><p class="eyebrow">Trazabilidad</p><h2>Método y datos</h2><p>La señal se puede auditar y repetir. No sustituye los datos internos del restaurante.</p></div>
+        <div class="method-grid">
+          <article class="panel-card"><span class="step">01</span><h3>Google como sensor operativo</h3><p>Su volumen permite detectar velocidad y comparar bloques consecutivos de 100 reseñas dentro del mismo local.</p></article>
+          <article class="panel-card"><span class="step">02</span><h3>Tripadvisor como contraste</h3><p>Se usa para reforzar un tema cuando aparece en ambas plataformas. Las estrellas no se mezclan porque sus muestras y sesgos son distintos.</p></article>
+          <article class="panel-card"><span class="step">03</span><h3>La IA clasifica y propone</h3><p>Agrupa texto por motivo, señala concentraciones y redacta una comprobación. Una persona valida antes de actuar.</p></article>
+          <article class="panel-card"><span class="step">04</span><h3>Datos internos cierran el diagnóstico</h3><p>Reservas, tiempos de cocina, turnos y ubicación de mesa permiten confirmar la causa y medir la corrección.</p></article>
+        </div>
+        <div class="decision-banner">
+          <div><p class="eyebrow">Decisión metodológica</p><h3>No existe un “índice combinado” de estrellas</h3></div>
+          <p>Google genera la alerta. Tripadvisor aumenta la confianza cuando confirma el mismo problema. Así evitamos que una media artificial oculte una subida reciente.</p>
+        </div>
+        <section class="method-grid">
+          <article class="panel-card">
+            <p class="eyebrow">Delta</p>
+            <h3>Cuánto se ha separado el presente</h3>
+            <p>Delta es la nota de la muestra reciente —las últimas 100 reseñas, o todas las disponibles si hay menos— menos la nota pública de la ficha. Kioto es el caso con una muestra más corta: 60 reseñas. La ficha resume miles de opiniones acumuladas durante años y se mueve muy despacio; la muestra reciente refleja lo que pasa ahora.</p>
+            <p>En Toscana la ficha marca 4,80 y las últimas 100 reseñas 4,10, así que delta es -0,70: la reputación pública va por delante de la realidad y seguirá marcando 4,8 estrellas durante meses. Delta sirve para ordenar los locales por gravedad. No decide por sí solo si hay alerta.</p>
+          </article>
+          <article class="panel-card">
+            <p class="eyebrow">P (valor p)</p>
+            <h3>Si el cambio puede ser casualidad</h3>
+            <p>En cualquier restaurante hay semanas con más quejas que otras sin que nada haya cambiado. El valor p responde a esta pregunta: si en realidad no hubiera cambiado nada, cuántas veces de cada 1.000 veríamos una diferencia tan grande como esta solo por azar?</p>
+            <p>Un p de 0,001 es una de cada mil: tan raro que lo más sensato es pensar que sí ha cambiado algo. Un p de 0,48 ocurre casi la mitad de las veces por azar. No prueba que el local esté bien: dice que estos datos no permiten distinguir un cambio real de la variación normal, así que no justifica abrir una alerta ni movilizar al equipo. El panel usa el umbral habitual de 0,05. Cuidado: un p bajo dice que el cambio es difícil de explicar por azar. No dice que el cambio sea grande ni importante. Para eso está delta. Si en la columna aparece “muestra corta”, no hay reseñas suficientes para calcularlo. Eso no significa que no haya problema: significa que no se sabe.</p>
+          </article>
+          <article class="panel-card">
+            <p class="eyebrow">Las dos cifras juntas</p>
+            <h3>Qué abre una alerta</h3>
+            <p>La alerta no se calcula con la nota, sino con el porcentaje de reseñas de 1 y 2 estrellas. Se compara ese porcentaje en las últimas 100 reseñas contra el resto de la muestra del mismo local, y se abre alerta solo si se cumplen las dos condiciones: el porcentaje de negativas ha subido, y el valor p está por debajo de 0,05.</p>
+            <p>Por eso Bali no genera alerta aunque su p sea 0,022: sus negativas bajaron de 13 a 4 por cada 100. Es una mejora significativa, no un problema. Y por eso Nueva Zelanda tampoco: pasó de 5 a 7 negativas, que parece un empeoramiento, pero con p = 0,48 esa diferencia entra dentro de lo normal. Delta acompaña a la alerta para decir cuánto pesa, pero no la dispara.</p>
+          </article>
+        </section>
+        <div class="source-box">
+          <h3>Alcance de esta prueba</h3>
+          <ul>
+            <li>1.760 reseñas recientes de Google: 300 por cada local prioritario y 200 por los demás, salvo Kioto (60).</li>
+            <li>Fichas Google de ocho locales: 133.393 valoraciones visibles en total; siete tienen dos bloques comparables.</li>
+            <li>Captura cerrada el 5 de septiembre de 2026. Las fechas relativas se conservan como las muestra Google.</li>
+          </ul>
+          <div class="source-links">
+            <a href="https://github.com/gosom/google-maps-scraper" target="_blank" rel="noreferrer">Extractor utilizado ↗</a>
+            <a href="NOTA_DE_EVIDENCIA.md" target="_blank">Nota de evidencia ↗</a>
+            <a href="metricas.csv" target="_blank">Métricas CSV ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="ask-dialog">
+    <button class="dialog-close" id="close-ask" aria-label="Cerrar">×</button>
+    <p class="eyebrow">Consulta operativa</p>
+    <h2>Preguntar a ALMA</h2>
+    <div class="suggestions">
+      <button data-question="critical">¿Qué ha cambiado?</button>
+      <button data-question="priority">¿Qué debería revisar hoy?</button>
+      <button data-question="method">¿Por qué no mezclas Google y Tripadvisor?</button>
+    </div>
+    <form id="ask-form"><input id="ask-input" placeholder="Escribe una pregunta sobre los locales…" autocomplete="off"><button>Enviar</button></form>
+    <div class="answer-box" id="answer-box"><span>ALMA usa la muestra cargada en este prototipo. No consulta datos internos.</span></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
